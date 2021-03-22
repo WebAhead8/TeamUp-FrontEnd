@@ -4,6 +4,8 @@ import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 
+import homeIcon from "../../Assets/Home.svg";
+
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 

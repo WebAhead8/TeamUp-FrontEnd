@@ -1,43 +1,48 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
+import React from "react";
+
+import * as IoIcons from "react-icons/io";
+
+import homeIcon from "../../Assets/Home.svg";
+import lobbyIcon from "../../Assets/Lobby.svg";
+import profileIcon from "../../Assets/Profile.svg";
+import roomsIcon from "../../Assets/Rooms.svg";
+import usersIcon from "../../Assets/Users.svg";
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text',
+    title: "Home",
+    path: "/",
+    icon: <img src={homeIcon} />,
+    cName: "nav-text",
   },
   {
-    title: 'Reports',
-    path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text',
+    title: "Lobby",
+    path: "/Lobby",
+    icon: <img src={lobbyIcon} />,
+    cName: "nav-text",
   },
   {
-    title: 'Products',
-    path: '/products',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text',
+    title: "Profile",
+    path: "/Profile",
+    icon: <img src={profileIcon} />,
+    cName: "nav-text",
   },
   {
-    title: 'Team',
-    path: '/team',
-    icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text',
+    title: "Rooms",
+    path: "/Rooms",
+    icon: <img src={roomsIcon} />,
+    cName: "nav-text",
   },
   {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text',
+    title: "Users",
+    path: "/Users",
+    icon: <img src={usersIcon} />,
+    cName: "nav-text",
   },
   {
-    title: 'Support',
-    path: '/support',
+    title: "Support",
+    path: "/support",
     icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text',
+    cName: "nav-text",
   },
 ];

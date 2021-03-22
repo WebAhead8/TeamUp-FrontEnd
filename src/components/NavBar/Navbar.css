@@ -43,6 +43,9 @@
   padding: 0 16px;
   border-radius: 4px;
 }
+.nav-text a img {
+  width: 25px;
+}
 
 /* .nav-text a:hover {
   background-color: #1a83ff;
