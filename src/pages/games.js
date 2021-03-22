@@ -1,1 +1,1 @@
-hello bushra ;
+console.log("hello");
