@@ -33,7 +33,7 @@
   0% {
     transform: rotateZ(0);
   }
-  25% {
+  100% {
     transform: rotateZ(22.5);
   }
 }
