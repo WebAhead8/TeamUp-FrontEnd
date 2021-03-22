@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    transform: rotateZ(22.5deg);
+    transform: rotateY(360deg);
     animation: three 5s infinite;
   }
 }
