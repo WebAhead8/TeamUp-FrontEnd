@@ -12,37 +12,37 @@ export const SidebarData = [
   {
     title: "Home",
     path: "/",
-    icon: <img src={homeIcon} />,
+    icon: <img src={homeIcon} alt="" />,
     cName: "nav-text",
   },
   {
     title: "Lobby",
     path: "/Lobby",
-    icon: <img src={lobbyIcon} />,
+    icon: <img src={lobbyIcon} alt="" />,
     cName: "nav-text",
   },
   {
     title: "Profile",
     path: "/Profile",
-    icon: <img src={profileIcon} />,
+    icon: <img src={profileIcon} alt="" />,
     cName: "nav-text",
   },
   {
     title: "Rooms",
     path: "/Rooms",
-    icon: <img src={roomsIcon} />,
+    icon: <img src={roomsIcon} alt="" />,
     cName: "nav-text",
   },
   {
     title: "Users",
     path: "/Users",
-    icon: <img src={usersIcon} />,
+    icon: <img src={usersIcon} alt="" />,
     cName: "nav-text",
   },
   {
     title: "Support",
     path: "/support",
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <IoIcons.IoMdHelpCircle alt="" />,
     cName: "nav-text",
   },
 ];

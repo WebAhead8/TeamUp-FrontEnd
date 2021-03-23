@@ -1,5 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@mixin centerFlex($dir) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
+}
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #222831;
+  color: #c4c4c4;
+  font-family: "Play", sans-serif;
+}
+.logo-container {
+  font-family: "Permanent Marker", cursive;
+  .logo {
+    color: #3b6978;
+    text-decoration: none;
+    font-size: 24px;
+    span {
+      color: #eeeeee;
+    }
+  }
+}
+
+/* Landing Page */
+
+.hero {
+  margin: 2rem;
+  margin-top: 60px;
+  .container {
+    @include centerFlex(column);
+    .left-col {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+      p {
+        margin-bottom: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: #c4c4c4;
+        background-color: #3b6978;
+        padding: 0.7rem 2rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #c4c4c4;
+          color: #3b6978;
+        }
+      }
+    }
+  }
+  .right-col {
+    margin-top: 50px;
+    .hero {
+      width: 263px;
+      height: 180px;
+    }
+  }
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  p {
+    text-align: center;
+    font-size: 18px;
+  }
 }
