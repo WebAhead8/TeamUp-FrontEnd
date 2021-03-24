@@ -11,6 +11,7 @@ function Profile() {
     if (token) {
       getUser(token)
         .then((data) => {
+          console.log("DAAAAAAAAAAAAAa ", data);
           setUser(data);
           setIsLoggedIn(true);
         })
@@ -71,6 +72,13 @@ function Profile() {
             <img src="../../Assets/mobile.svg" alt="" />
             <input type="checkbox" name="platforms" value="mobile" />
           </label>
+        </div>
+      </div>
+      <div className="gamelist">
+        <p>Games List</p>
+
+        <div className="container">
+
         </div>
       </div>
       <button onClick={logout}>logout</button>
