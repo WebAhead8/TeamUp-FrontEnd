@@ -11,6 +11,7 @@ function Profile() {
     if (token) {
       getUser(token)
         .then((data) => {
+          console.log("DAAAAAAAAAAAAAa ", data);
           setUser(data);
           setIsLoggedIn(true);
         })
