@@ -29,13 +29,13 @@ export const SidebarData = [
   },
   {
     title: "Rooms",
-    path: "/rooms",
+    path: "/games",
     icon: <img src={roomsIcon} alt="" />,
     cName: "nav-text",
   },
   {
     title: "Users",
-    path: "/users",
+    path: "/gamers",
     icon: <img src={usersIcon} alt="" />,
     cName: "nav-text",
   },
