@@ -4,6 +4,8 @@ import { getUser } from "../../utils/fetchUsers";
 function Profile() {
   const [user, setUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  
+  // Check If there is a user logged in
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
 
@@ -17,8 +19,12 @@ function Profile() {
         .catch((error) => {
           console.log(error);
         });
+    } else {
+      window.location.href = "/login";
     }
   }, []);
+
+  // Logout Function
   const logout = () => {
     localStorage.removeItem("access_token");
 
@@ -26,6 +32,7 @@ function Profile() {
     setIsLoggedIn(false);
     window.location.href = "/landingpage";
   };
+
   return (
     <div className="profile">
       <div className="profile-hdr">
@@ -71,6 +78,13 @@ function Profile() {
             <img src="../../Assets/mobile.svg" alt="" />
             <input type="checkbox" name="platforms" value="mobile" />
           </label>
+        </div>
+      </div>
+      <div className="gamelist">
+        <p>Games List</p>
+
+        <div className="container">
+
         </div>
       </div>
       <button onClick={logout}>logout</button>
