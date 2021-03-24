@@ -1,6 +1,6 @@
 import React from "react";
 import "./style/main.css";
-import Navbar from "./components/NavBar/Navbar";
+// import Navbar from "./components/NavBar/Navbar";
 import Rooms from "./components/Rooms/Rooms";
 import Login from "./components/UsersPanel/Login";
 import SignUp from "./components/UsersPanel/SignUp";
@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
 import Logo from "./components/Logo";
 import Footer from "./components/Footer";
+import Games from "./components/Games/Games";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/landingpage" exact component={LandingPage} />
+          <Route path="/games/" exact component={Games} />
           <Route path="/rooms" exact component={Rooms} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={SignUp} />

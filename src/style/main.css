@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -38,15 +38,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .hero .container .left-col {
@@ -54,15 +54,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   font-size: 24px;
   line-height: 28px;
   text-align: center;
@@ -114,15 +114,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .login header {
@@ -133,7 +133,7 @@ footer p {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   text-align: center;
 }
 
@@ -142,15 +142,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   font-size: 24px;
   font-weight: bold;
 }
@@ -168,15 +168,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .login .login-form .container .form {
@@ -184,12 +184,12 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .login .login-form .container .form * {
@@ -238,8 +238,8 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .login .login-form .container .form .user-hdr .names {
@@ -247,12 +247,12 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .login .login-form .container .form .user-hdr .names input {
@@ -265,15 +265,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .profile .profile-hdr {
@@ -285,15 +285,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: rows;
-          flex-direction: rows;
+  -ms-flex-direction: rows;
+  flex-direction: rows;
 }
 
 .profile .profile-hdr header * {
@@ -322,15 +322,16 @@ footer p {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   text-align: left;
   font-size: 24px;
 }
 
 .profile .user-info .container p {
   position: relative;
-  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4, 2px 2px 0 #c4c4c4;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
+    2px 2px 0 #c4c4c4;
   font-weight: bold;
   font-size: 28px;
   top: -40px;
@@ -349,7 +350,8 @@ footer p {
 
 .profile .platforms p {
   position: relative;
-  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4, 2px 2px 0 #c4c4c4;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
+    2px 2px 0 #c4c4c4;
   font-weight: bold;
   left: -55px;
   font-size: 28px;
@@ -362,8 +364,8 @@ footer p {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: rows;
-          flex-direction: rows;
+  -ms-flex-direction: rows;
+  flex-direction: rows;
   font-size: 24px;
 }
 
@@ -376,15 +378,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .profile .platforms .container label input[type="ckeckbox"] {
@@ -411,3 +413,45 @@ footer p {
   background-color: #c4c4c4;
 }
 /*# sourceMappingURL=main.css.map */
+
+/* games page */
+.page {
+  position: relative;
+  width: 360px;
+  height: 640px;
+
+  background: #222831;
+}
+
+.head-search {
+  position: absolute;
+  width: 301px;
+  height: 70px;
+  left: 40px;
+  top: 40px;
+}
+.head-search h1 {
+  font-size: 20px;
+}
+
+.gamesList {
+  position: absolute;
+  height: 10px;
+}
+
+.game-list {
+  position: absolute;
+  width: 307px;
+  height: 384px;
+  left: 27px;
+  top: 276px;
+  background: #393e46;
+}
+
+h4 {
+  font-family: Play;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+}
