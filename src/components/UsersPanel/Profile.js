@@ -4,6 +4,8 @@ import { getUser } from "../../utils/fetchUsers";
 function Profile() {
   const [user, setUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  
+  // Check If there is a user logged in
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
 
@@ -11,15 +13,18 @@ function Profile() {
     if (token) {
       getUser(token)
         .then((data) => {
-          console.log("DAAAAAAAAAAAAAa ", data);
           setUser(data);
           setIsLoggedIn(true);
         })
         .catch((error) => {
           console.log(error);
         });
+    } else {
+      window.location.href = "/login";
     }
   }, []);
+
+  // Logout Function
   const logout = () => {
     localStorage.removeItem("access_token");
 
@@ -27,6 +32,7 @@ function Profile() {
     setIsLoggedIn(false);
     window.location.href = "/landingpage";
   };
+
   return (
     <div className="profile">
       <div className="profile-hdr">

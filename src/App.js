@@ -4,12 +4,15 @@ import Navbar from "./components/NavBar/Navbar";
 import Rooms from "./components/Rooms/Rooms";
 import Login from "./components/UsersPanel/Login";
 import SignUp from "./components/UsersPanel/SignUp";
+import Lobby from "./components/Lobby/Lobby";
 import Profile from "./components/UsersPanel/Profile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
 import Logo from "./components/Logo";
+import Gamers from "./components/UsersPanel/Gamers";
 import Footer from "./components/Footer";
+import GamerProf from "./components/UsersPanel/GamerProf";
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={SignUp} />
           <Route path="/profile" exact component={Profile} />
+          <Route path="/lobby" exact component={Lobby} />
+          <Route path="/gamers" exact component={Gamers} />
+          <Route path="/users" component={GamerProf} />
         </Switch>
         <Footer />
       </Router>
