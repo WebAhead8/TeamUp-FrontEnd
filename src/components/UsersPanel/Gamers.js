@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import mainFetch from "../../utils/mainFetch";
 import { BrowserRouter as Link } from "react-router-dom";
 // import GamerProf from "./GamerProf";
 
 function Gamers() {
-  const [gamers, setGamers] = useState([]);
+  const [gamers, setGamers] = React.useState([]);
 
   React.useEffect(() => {
     const url = "/users";
