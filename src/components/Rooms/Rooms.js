@@ -12,7 +12,9 @@ function Rooms() {
   React.useEffect(() => {
     const gameId = rooms.gname;
     const url = `/game/${gameId}`;
-    mainFetch(url).then((data) => {});
+    mainFetch(url).then((data) => {
+      console.log(data);
+    });
   });
 
   return (

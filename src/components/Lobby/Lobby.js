@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import mainFetch from "../../utils/mainFetch";
 
 function Lobby() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = React.useState([]);
   React.useEffect(() => {
     const url = "/AllPosts";
     mainFetch(url).then((data) => {
