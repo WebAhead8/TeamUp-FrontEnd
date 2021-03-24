@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { getUser } from "../../utils/fetchUsers";
 
 function Profile() {
   const [user, setUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  
+
   // Check If there is a user logged in
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
@@ -24,6 +24,7 @@ function Profile() {
     }
   }, []);
 
+  console.log(isLoggedIn);
   // Logout Function
   const logout = () => {
     localStorage.removeItem("access_token");
@@ -83,9 +84,7 @@ function Profile() {
       <div className="gamelist">
         <p>Games List</p>
 
-        <div className="container">
-
-        </div>
+        <div className="container"></div>
       </div>
       <button onClick={logout}>logout</button>
     </div>

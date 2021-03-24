@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import mainFetch from "../../utils/mainFetch";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import GamerProf from "./GamerProf";
-
+import { BrowserRouter as Link } from "react-router-dom";
+// import GamerProf from "./GamerProf";
 
 function Gamers() {
   const [gamers, setGamers] = useState([]);
@@ -19,9 +18,10 @@ function Gamers() {
     <div>
       <Link
         to={{
-          pathname: '/users',
+          pathname: "/users",
           search: `id=${id}`,
-        }}>
+        }}
+      >
         {username}
       </Link>
       {gamelist}
@@ -33,6 +33,7 @@ function Gamers() {
       {gamers.map((p, i) => (
         <Gamers {...p} key={i} />
       ))}
-    </div>);
+    </div>
+  );
 }
 export default Gamers;
