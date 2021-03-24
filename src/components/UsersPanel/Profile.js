@@ -73,6 +73,13 @@ function Profile() {
           </label>
         </div>
       </div>
+      <div className="gamelist">
+        <p>Games List</p>
+
+        <div className="container">
+
+        </div>
+      </div>
       <button onClick={logout}>logout</button>
     </div>
   );
