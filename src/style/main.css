@@ -416,7 +416,7 @@ footer p {
 
 /* games page */
 .page {
-  position: relative;
+  /* position: relative; */
   width: 360px;
   height: 640px;
 
@@ -424,7 +424,7 @@ footer p {
 }
 
 .head-search {
-  position: absolute;
+  /* position: absolute; */
   width: 301px;
   height: 70px;
   left: 40px;
@@ -435,12 +435,12 @@ footer p {
 }
 
 .gamesList {
-  position: absolute;
+  /* position: absolute; */
   height: 10px;
 }
 
 .game-list {
-  position: absolute;
+  /* position: absolute; */
   width: 307px;
   height: 384px;
   left: 27px;
