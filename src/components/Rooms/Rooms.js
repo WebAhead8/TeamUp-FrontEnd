@@ -6,11 +6,18 @@ function Rooms() {
 
   React.useEffect(() => {
     const url = "/rooms";
-    mainFetch(url).then((data) => console.log(data));
+    mainFetch(url).then((data) => setRooms(data));
   }, []);
+
+  React.useEffect(() => {
+    const gameId = rooms.gname;
+    const url = `/game/${gameId}`;
+    mainFetch(url).then((data) => {});
+  });
+
   return (
     <div>
-      <h1>Rooms</h1>
+      <h1>Search The ROOM You Want </h1>
     </div>
   );
 }
