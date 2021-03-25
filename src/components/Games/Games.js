@@ -40,7 +40,12 @@ function Games() {
         <ul className="game-list">
           {gamesList.map((game) => (
             <li className="gameName" key={game.id}>
-              <Link to={{ pathname: "/rooms", search: `id=${game.id}` }}>
+              <Link
+                to={{
+                  pathname: "/rooms",
+                  search: `id=${game.id}=gname=${game.gname}`,
+                }}
+              >
                 {game.gname}
               </Link>
             </li>

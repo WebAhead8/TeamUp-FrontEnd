@@ -10,7 +10,6 @@ function Gamers() {
     const url = "/users";
     mainFetch(url).then((data) => {
       setGamers(data);
-      console.log("gamers ", gamers);
     });
   }, []);
 

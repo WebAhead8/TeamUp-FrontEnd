@@ -11,10 +11,19 @@ body {
   background-color: #222831;
   color: #c4c4c4;
   font-family: "Play", sans-serif;
+  width: 360px;
+  height: 640px;
+}
+
+#root {
+  width: 360px;
+  height: 640px;
 }
 
 .logo-container {
   font-family: "Permanent Marker", cursive;
+  display: flex;
+  align-items: center;
 }
 
 .logo-container .logo {
@@ -97,10 +106,12 @@ body {
 
 /* Footer */
 footer {
-  position: relative;
+  position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
-  padding: 15px;
+  color: white;
+  text-align: center;
 }
 
 footer p {
@@ -454,4 +465,8 @@ h4 {
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
+}
+
+.header {
+  display: flex;
 }

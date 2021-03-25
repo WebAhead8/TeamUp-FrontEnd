@@ -1,6 +1,8 @@
 import React from "react";
 import "./style/main.css";
 import Rooms from "./components/Rooms/Rooms";
+import InsideRoom from "./components/Rooms/InsideRoom";
+import CreacteRoom from "./components/Rooms/CreateRoom";
 import Login from "./components/UsersPanel/Login";
 import SignUp from "./components/UsersPanel/SignUp";
 import Lobby from "./components/Lobby/Lobby";
@@ -21,12 +23,17 @@ function App() {
     return (
       <>
         <Router>
-          <Logo />
-          <Nav />
+          <div className="header">
+            <Nav />
+            <Logo />
+          </div>
+
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/games/" exact component={Games} />
             <Route path="/rooms" component={Rooms} />
+            <Route path="/insideRoom" exact component={InsideRoom} />
+            <Route path="/createRoom" exact component={CreacteRoom} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/lobby" exact component={Lobby} />
             <Route path="/gamers" exact component={Gamers} />
