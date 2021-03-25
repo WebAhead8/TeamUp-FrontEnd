@@ -20,6 +20,7 @@ function request(url, options) {
 }
 
 export function login(loginData) {
+  console.log(serverUrl);
   return request(`${serverUrl}/login`, {
     method: "POST",
     body: JSON.stringify(loginData),

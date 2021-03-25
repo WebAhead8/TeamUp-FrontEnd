@@ -48,18 +48,10 @@ function Login() {
     }
   }, []);
 
-  // const logout = () => {
-  //   localStorage.removeItem("access_token");
-
-  //   setUser({});
-  //   setIsLoggedIn(false);
-  // };
-
   if (isLoggedIn) {
     window.location.href = "/";
   }
 
-  console.log(user);
   return (
     <div className="login">
       <header>
