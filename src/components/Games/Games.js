@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function Games() {
   const [gameName, setGameName] = React.useState("");
   const [gamesList, setGamesList] = React.useState([]);
-  //   const [gameId, setGameId] = React.useState("");
 
   const handleChange = (event) => {
     setGameName(event.target.value);
