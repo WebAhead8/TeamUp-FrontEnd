@@ -7,6 +7,7 @@ function CreateRoom() {
 
   const username = window.localStorage.getItem("username");
   const ganmeid = window.location.href.split("=")[1];
+  const gameName = window.location.href.split("=")[2];
 
   const [createRoomInfo, setCreateRoomInfo] = React.useState(null);
 
@@ -54,6 +55,7 @@ function CreateRoom() {
   const onSubmit = (event) => {
     event.preventDefault();
     createRoom(createRoomInfo);
+    window.location.href = `/rooms?id=${ganmeid}=gname=${gameName}`;
   };
 
   return (
