@@ -325,6 +325,11 @@ footer p {
   border-left: #3b6978 5px solid;
   margin: 25px;
   width: 350px;
+  background: #c4c4c4;
+  border-radius: 42px;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
+    2px 2px 0 #c4c4c4;
+  font-weight: bold;
 }
 
 .profile .user-info .container {
@@ -344,6 +349,7 @@ footer p {
   text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
     2px 2px 0 #c4c4c4;
   font-weight: bold;
+  font-weight: bold;
   font-size: 28px;
   top: -40px;
   text-transform: uppercase;
@@ -353,10 +359,15 @@ footer p {
   background-color: #c4c4c4;
   color: #222831;
   padding: 20px 40px;
-  border-top: #3b6978 5px solid;
-  border-right: #3b6978 5px solid;
+  border-bottom: #3b6978 5px solid;
+  border-left: #3b6978 5px solid;
   margin: 25px;
   width: 350px;
+  background: #c4c4c4;
+  border-radius: 42px;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
+    2px 2px 0 #c4c4c4;
+  font-weight: bold;
 }
 
 .profile .platforms p {
@@ -469,4 +480,29 @@ h4 {
 
 .header {
   display: flex;
+}
+
+.userIcon {
+  display: flex;
+  justify-content: center;
+}
+
+.userIcon img {
+  width: 100px;
+  height: 93px;
+  border-radius: 50%;
+}
+
+legend {
+  font-size: 35px;
+  margin: 0 auto;
+  color: #222831;
+  border-color: #c4c4c4;
+  position: relative;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

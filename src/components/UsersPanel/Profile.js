@@ -28,6 +28,7 @@ function Profile() {
   // Logout Function
   const logout = () => {
     localStorage.removeItem("access_token");
+    localStorage.removeItem("username");
 
     setUser({});
     setIsLoggedIn(false);
@@ -45,22 +46,17 @@ function Profile() {
           </button>
         </header>
       </div>
-      <div className="user-info">
-        <div className="container">
-          <p>User Info</p>
 
-          <i>First Name : {user.firstname}</i>
-          <br />
-          <i>Last Name : {user.lastname}</i>
-          <br />
-          <i>Username : {user.username}</i>
-          <br />
-          <i>E-Mail : {user.email}</i>
-          <br />
-        </div>
-      </div>
-      <div className="platforms">
-        <p>platforms</p>
+      <fieldset className="user-info">
+        <legend>User Info</legend>
+        <i>First Name: {user.firstname}</i>
+        <i>Last Name: {user.lastname}</i>
+        <i>Username: {user.username}</i>
+        <i>E-Mail: {user.email}</i>
+      </fieldset>
+
+      <fieldset className="platforms">
+        <legend>platforms</legend>
 
         <div className="container">
           <label>
@@ -80,7 +76,7 @@ function Profile() {
             <input type="checkbox" name="platforms" value="mobile" />
           </label>
         </div>
-      </div>
+      </fieldset>
       <div className="gamelist">
         <p>Games List</p>
 
