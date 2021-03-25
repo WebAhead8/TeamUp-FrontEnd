@@ -1,6 +1,6 @@
 import React from "react";
 import mainFetch from "../../utils/mainFetch";
-import { BrowserRouter as useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
