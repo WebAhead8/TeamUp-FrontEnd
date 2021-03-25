@@ -9,10 +9,6 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
-  // const [burgerbar, setburgerbar] = useState(false);
-
-  // const showbar = () => setburgerbar(!burgerbar);
-
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
