@@ -1,22 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { login, getUser } from "../../utils/fetchUsers";
+
 function Login() {
+  // States
   const [worrning, setWorrning] = useState("");
   const [loginData, setLoginData] = useState({ email: "", pass: "" });
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Storing the value each time user types in input
   const onChange = (stateKey) => ({ target }) =>
     setLoginData({ ...loginData, [stateKey]: target.value });
+
+  // On Click "Login"
   const onSubmit = (event) => {
     event.preventDefault();
 
-    login(loginData).then((data) => {
-      localStorage.setItem("access_token", data.access_token);
-      localStorage.setItem("username", data.user);
+    login(loginData)
+      .then((data) => {
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("username", data.user);
 
-      setUser(data);
-      setIsLoggedIn(true);
-    });
+        setUser(data);
+        setIsLoggedIn(true);
+      })
+      .catch((error) => {
+        setWorrning("Email or Password are not correct");
+        console.log(`HTTP error fetching login ${error}`);
+      });
 
     if (loginData.email && loginData.pass) {
       login(loginData).then((data) => {
@@ -49,7 +60,7 @@ function Login() {
   }, []);
 
   if (isLoggedIn) {
-    window.location.href = "/";
+    window.location.href = "/profile";
   }
 
   return (

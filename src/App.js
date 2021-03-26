@@ -18,46 +18,31 @@ import GamerProf from "./components/UsersPanel/GamerProf";
 import Nav from "./components/NavBar/Navbar";
 
 function App() {
-  const token = window.localStorage.getItem("access_token");
-  if (token) {
-    return (
-      <>
-        <Router>
-          <div className="header">
-            <Nav />
-            <Logo />
-          </div>
-
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/games/" exact component={Games} />
-            <Route path="/rooms" component={Rooms} />
-            <Route path="/insideRoom" exact component={InsideRoom} />
-            <Route path="/createRoom" exact component={CreacteRoom} />
-            <Route path="/profile" exact component={Profile} />
-            <Route path="/lobby" exact component={Lobby} />
-            <Route path="/gamers" exact component={Gamers} />
-            <Route path="/users" component={GamerProf} />
-          </Switch>
-          <Footer />
-        </Router>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Router>
+  return (
+    <>
+      <Router>
+        <div className="menu-logo-hdr">
+          <Nav />
           <Logo />
-          <Switch>
-            <Route path="/landingpage" exact component={LandingPage} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={SignUp} />
-          </Switch>
-          <Footer />
-        </Router>
-      </>
-    );
-  }
+        </div>
+        <Switch>
+          <Route path="/Home" exact component={Home} />
+          <Route path="/games/" exact component={Games} />
+          <Route path="/rooms" component={Rooms} />
+          <Route path="/insideRoom" exact component={InsideRoom} />
+          <Route path="/createRoom" exact component={CreacteRoom} />
+          <Route path="/profile" exact component={Profile} />
+          <Route path="/lobby" exact component={Lobby} />
+          <Route path="/gamers" exact component={Gamers} />
+          <Route path="/users" component={GamerProf} />
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={SignUp} />
+        </Switch>
+        <Footer />
+      </Router>
+    </>
+  );
 }
 
 export default App;

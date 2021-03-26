@@ -4,26 +4,17 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   background-color: #222831;
   color: #c4c4c4;
   font-family: "Play", sans-serif;
-  width: 360px;
-  height: 640px;
-}
-
-#root {
-  width: 360px;
-  height: 640px;
 }
 
 .logo-container {
   font-family: "Permanent Marker", cursive;
-  display: flex;
-  align-items: center;
 }
 
 .logo-container .logo {
@@ -47,15 +38,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .hero .container .left-col {
@@ -63,15 +54,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 24px;
   line-height: 28px;
   text-align: center;
@@ -106,12 +97,10 @@ body {
 
 /* Footer */
 footer {
-  position: fixed;
-  left: 0;
+  position: relative;
   bottom: 0;
   width: 100%;
-  color: white;
-  text-align: center;
+  padding: 15px;
 }
 
 footer p {
@@ -125,15 +114,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .login header {
@@ -144,7 +133,7 @@ footer p {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   text-align: center;
 }
 
@@ -153,15 +142,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 24px;
   font-weight: bold;
 }
@@ -179,15 +168,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .login .login-form .container .form {
@@ -195,12 +184,12 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .login .login-form .container .form * {
@@ -249,8 +238,8 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .login .login-form .container .form .user-hdr .names {
@@ -258,12 +247,12 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .login .login-form .container .form .user-hdr .names input {
@@ -276,15 +265,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .profile .profile-hdr {
@@ -296,15 +285,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: rows;
-  flex-direction: rows;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
 }
 
 .profile .profile-hdr header * {
@@ -317,42 +306,55 @@ footer p {
   cursor: pointer;
 }
 
+.profile .gamelist,
 .profile .user-info {
   background-color: #c4c4c4;
   color: #222831;
-  padding: 20px 40px;
+  padding: 20px 30px;
   border-bottom: #3b6978 5px solid;
   border-left: #3b6978 5px solid;
+  border-top: #3b6978 2px solid;
+  border-right: #3b6978 2px solid;
   margin: 25px;
-  width: 350px;
-  background: #c4c4c4;
+  width: 400px;
   border-radius: 42px;
-  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
-    2px 2px 0 #c4c4c4;
-  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
+.profile .gamelist i,
+.profile .user-info i {
+  font-size: 20px;
+}
+
+.profile .gamelist legend,
+.profile .user-info legend {
+  font-weight: bold;
+  font-size: 25px;
+  color: #222831;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4, 2px 2px 0 #c4c4c4;
+  text-transform: uppercase;
+}
+
+.profile .gamelist .container,
 .profile .user-info .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: left;
   font-size: 24px;
-}
-
-.profile .user-info .container p {
-  position: relative;
-  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
-    2px 2px 0 #c4c4c4;
-  font-weight: bold;
-  font-weight: bold;
-  font-size: 28px;
-  top: -40px;
-  text-transform: uppercase;
 }
 
 .profile .platforms {
@@ -360,23 +362,19 @@ footer p {
   color: #222831;
   padding: 20px 40px;
   border-bottom: #3b6978 5px solid;
-  border-left: #3b6978 5px solid;
-  margin: 25px;
-  width: 350px;
-  background: #c4c4c4;
+  border-left: #3b6978 2px solid;
+  border-top: #3b6978 2px solid;
+  border-right: #3b6978 5px solid;
   border-radius: 42px;
-  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
-    2px 2px 0 #c4c4c4;
-  font-weight: bold;
+  margin: 25px;
+  width: 400px;
 }
 
-.profile .platforms p {
-  position: relative;
-  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
-    2px 2px 0 #c4c4c4;
+.profile .platforms legend {
   font-weight: bold;
-  left: -55px;
-  font-size: 28px;
+  font-size: 25px;
+  color: #222831;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4, 2px 2px 0 #c4c4c4;
   text-transform: uppercase;
 }
 
@@ -386,8 +384,8 @@ footer p {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: rows;
-  flex-direction: rows;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
   font-size: 24px;
 }
 
@@ -400,15 +398,15 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .profile .platforms .container label input[type="ckeckbox"] {
@@ -434,75 +432,51 @@ footer p {
   color: #3b6978;
   background-color: #c4c4c4;
 }
-/*# sourceMappingURL=main.css.map */
 
-/* games page */
-.page {
-  /* position: relative; */
-  width: 360px;
-  height: 640px;
-
-  background: #222831;
+.profile .popup {
+  position: fixed;
+  top: 30%;
+  width: 90%;
+  height: 50vh;
+  color: #c4c4c4;
 }
 
-.head-search {
-  /* position: absolute; */
-  width: 301px;
-  height: 70px;
-  left: 40px;
-  top: 40px;
+.profile .popup .popup-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: #222831;
+  border: #c4c4c4 5px solid;
 }
-.head-search h1 {
+
+.profile .popup .popup-inner h1 {
+  text-align: center;
+  margin: 10px;
+}
+
+.profile .popup .popup-inner a {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.profile .popup .popup-inner .close-btn {
+  margin: 10px;
   font-size: 20px;
 }
 
-.gamesList {
-  /* position: absolute; */
-  height: 10px;
+.profile .popup .popup-inner .del-account {
+  color: #f26157;
+  margin-top: 30px;
 }
-
-.game-list {
-  /* position: absolute; */
-  width: 307px;
-  height: 384px;
-  left: 27px;
-  top: 276px;
-  background: #393e46;
-}
-
-h4 {
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-.header {
-  display: flex;
-}
-
-.userIcon {
-  display: flex;
-  justify-content: center;
-}
-
-.userIcon img {
-  width: 100px;
-  height: 93px;
-  border-radius: 50%;
-}
-
-legend {
-  font-size: 35px;
-  margin: 0 auto;
-  color: #222831;
-  border-color: #c4c4c4;
-  position: relative;
-}
-
-fieldset {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/*# sourceMappingURL=main.css.map */

@@ -1,6 +1,6 @@
 import React from "react";
 import mainFetch from "../../utils/mainFetch";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import GamerProf from "./GamerProf";
 
 function Gamers() {

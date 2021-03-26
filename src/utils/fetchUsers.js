@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === "production") {
 function request(url, options) {
   return fetch(url, options).then((response) => {
     if (!response.ok) {
-      const error = new Error("HTTP Error");
+      const error = new Error("HTTP Error FetchUsers");
       error.status = response.status;
       throw error;
     } else {
@@ -40,10 +40,22 @@ export function createUser(userData) {
   });
 }
 
+export function updateUser(url, userData) {
+  return request(`${serverUrl}/update/${url}`, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).catch((err) => {
+    console.log(`fetch Update User failed ${err}`);
+  });
+}
+
 export function getUser(token) {
   return request(`${serverUrl}/login/me`, {
     headers: { authorization: `${token}` },
   });
 }
 
-export default { login, getUser, createUser };
+export default { login, getUser, createUser, updateUser };
