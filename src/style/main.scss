@@ -6,6 +6,19 @@
   align-items: center;
   flex-direction: $dir;
 }
+@mixin LeftFlex() {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@mixin legendStyle {
+  font-weight: bold;
+  font-size: 25px;
+  color: #222831;
+  text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
+    2px 2px 0 #c4c4c4;
+  text-transform: uppercase;
+}
 * {
   padding: 0;
   margin: 0;
@@ -178,47 +191,46 @@ footer {
       }
     }
   }
+  .gamelist,
   .user-info {
     background-color: #c4c4c4;
     color: #222831;
-    padding: 20px 40px;
+    padding: 20px 30px;
     border-bottom: #3b6978 5px solid;
     border-left: #3b6978 5px solid;
+    border-top: #3b6978 2px solid;
+    border-right: #3b6978 2px solid;
     margin: 25px;
-    width: 350px;
+    width: 400px;
+    border-radius: 42px;
+    @include LeftFlex();
+    i {
+      font-size: 20px;
+    }
+    legend {
+      @include legendStyle();
+    }
     .container {
       display: flex;
       flex-direction: column;
       text-align: left;
       font-size: 24px;
-
-      p {
-        position: relative;
-        text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
-          2px 2px 0 #c4c4c4;
-        font-weight: bold;
-        font-size: 28px;
-        top: -40px;
-        text-transform: uppercase;
-      }
     }
   }
   .platforms {
     background-color: #c4c4c4;
     color: #222831;
     padding: 20px 40px;
-    border-top: #3b6978 5px solid;
+    border-bottom: #3b6978 5px solid;
+    border-left: #3b6978 2px solid;
+    border-top: #3b6978 2px solid;
     border-right: #3b6978 5px solid;
+    border-radius: 42px;
     margin: 25px;
-    width: 350px;
-    p {
-      position: relative;
-      text-shadow: -2px -2px 0 #c4c4c4, 2px -2px 0 #c4c4c4, -2px 2px 0 #c4c4c4,
-        2px 2px 0 #c4c4c4;
-      font-weight: bold;
-      left: -55px;
-      font-size: 28px;
-      text-transform: uppercase;
+    width: 400px;
+
+    legend {
+      @include legendStyle();
     }
     .container {
       display: flex;
@@ -252,6 +264,38 @@ footer {
     &:hover {
       color: #3b6978;
       background-color: #c4c4c4;
+    }
+  }
+  .popup {
+    position: fixed;
+    top: 30%;
+    width: 90%;
+    height: 50vh;
+    color: #c4c4c4;
+    .popup-inner {
+      @include LeftFlex();
+      position: relative;
+      padding: 32px;
+      width: 100%;
+      max-width: 640px;
+      background-color: #222831;
+      border: #c4c4c4 5px solid;
+      h1 {
+        text-align: center;
+        margin: 10px;
+      }
+      a {
+        font-size: 18px;
+        margin: 5px;
+      }
+      .close-btn {
+        margin: 10px;
+        font-size: 20px;
+      }
+      .del-account {
+        color: #f26157;
+        margin-top: 30px;
+      }
     }
   }
 }
