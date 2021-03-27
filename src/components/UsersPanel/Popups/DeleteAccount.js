@@ -1,6 +1,25 @@
 import React from "react";
+import { deleteUser } from "../../../utils/fetchUsers";
+
 
 function DeleteAccount(props) {
+  const delUser = () => {
+    const url = "password";
+    deleteUser({ id: props.userId })
+      .then(() => {
+        console.log("Changed Successfully");
+        props.setTriggerDelete(false);
+        props.setTrigger(false);
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("username");
+        window.location.href = "/signup";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
+
   return props.triggerDelete ? (
     <div className="popup">
       <div className="popup-inner">
@@ -14,7 +33,7 @@ function DeleteAccount(props) {
         >
           No
         </button>
-        <button> Yes </button>
+        <button onClick={() => delUser()}> Yes </button>
         <button
           className="close-btn"
           onClick={() => {

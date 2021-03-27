@@ -52,10 +52,21 @@ export function updateUser(url, userData) {
   });
 }
 
+export function deleteUser(ID) {
+  return request(`${serverUrl}/users/${ID}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).catch((err) => {
+    console.log(`fetch Update User failed ${err}`);
+  });
+}
+
 export function getUser(token) {
   return request(`${serverUrl}/login/me`, {
     headers: { authorization: `${token}` },
   });
 }
 
-export default { login, getUser, createUser, updateUser };
+export default { login, getUser, createUser, updateUser, deleteUser };

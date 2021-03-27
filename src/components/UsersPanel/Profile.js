@@ -1,13 +1,16 @@
 import React from "react";
 import { getUser, updateUser } from "../../utils/fetchUsers";
+import DataList from "../DataList";
 import DeleteAccount from "./Popups/DeleteAccount";
 import Edit from "./Popups/Edit";
 import EditEmail from "./Popups/EditEmail";
 import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
 
+
 function Profile() {
   const [user, setUser] = React.useState({});
+  const [games, setGames] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [trigger, setTrigger] = React.useState(false);
   const [triggerEmail, setTriggerEmail] = React.useState(false);
@@ -20,11 +23,11 @@ function Profile() {
     mobile: false,
     pc: false,
   });
+
   // Check If there is a user logged in
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
 
-    console.log("token ", token);
     if (token) {
       getUser(token)
         .then((data) => {
@@ -37,23 +40,10 @@ function Profile() {
     } else {
       window.location.href = "/login";
     }
-  }, []);
-  // const checkingBox = () => {
-  //   if (user.platform) {
-  //     if (user.platform.includes("xbox")) {
-  //       setIsXboxChecked({ xbox: true });
-  //     }
-  //     if (user.platform.includes("ps")) {
-  //       setIsXboxChecked({ ps: true });
-  //     }
-  //     if (user.platform.includes("pc")) {
-  //       setIsXboxChecked({ pc: true });
-  //     }
-  //     if (user.platform.includes("mobile")) {
-  //       setIsXboxChecked({ mobile: true });
-  //     }
-  //   }
-  // };
+  }, [user]);
+
+
+
   // Update platforms when check or uncheck a box
   function updatePlatforms(plat) {
     if (user.platform) {
@@ -72,25 +62,36 @@ function Profile() {
       });
   }
 
-  React.useEffect(() => {
-    if (user.platform) {
-      if (user.platform.includes("xbox")) {
-        setIsXboxChecked({ xbox: true });
+  function updateGamelist(game) {
+    if (user.gamelist) {
+      if (!user.gamelist.includes(game)) {
+        user.gamelist.push(game);
+      } else {
+        user.gamelist.pop(game);
       }
-      if (user.platform.includes("ps")) {
-        setIsXboxChecked({ ps: true });
-      }
-      if (user.platform.includes("pc")) {
-        setIsXboxChecked({ pc: true });
-      }
-      if (user.platform.includes("mobile")) {
-        setIsXboxChecked({ mobile: true });
-      }
-      console.log(" lets see 1", isXboxChecked);
     }
-  }, [isXboxChecked]);
+    const url = "gameslist";
 
-  console.log(" lets see ", isXboxChecked.xbox);
+    updateUser(url, { id: user.id, gamelist: user.gamelist })
+      .then((data) => console.log("games ", data))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  // React.useEffect(() => {
+  //   const platforms = ["xbox", "ps", "pc", "mobile"];
+  //   if (user.platform) {
+  //     for (let i = 0; i <= platforms.length; i++) {
+  //       console.log("gtsgtgrsg ", platforms[i])
+  //       if (user.platform.includes(platforms[i])) {
+  //         const current = platforms[i];
+  //         setIsXboxChecked({ current: true });
+  //       }
+  //     }
+  //   }
+  //   console.log(isXboxChecked, "gggggggg");
+  // }, [user.platform]);
+
   // Logout Function
   const logout = () => {
     localStorage.removeItem("access_token");
@@ -100,7 +101,7 @@ function Profile() {
     setIsLoggedIn(false);
     window.location.href = "/landingpage";
   };
-  console.log("user 1", user);
+
   return (
     <div className="profile">
       <div className="profile-hdr">
@@ -160,21 +161,28 @@ function Profile() {
         triggerEmail={triggerEmail}
         setTriggerEmail={setTriggerEmail}
         setTrigger={setTrigger}
+        userId={user.id}
       />
       <EditPassword
         triggerPass={triggerPass}
         setTriggerPass={setTriggerPass}
         setTrigger={setTrigger}
+        userId={user.id}
+
       />
       <EditUsername
         triggerUsername={triggerUsername}
         setTriggerUsername={setTriggerUsername}
         setTrigger={setTrigger}
+        userId={user.id}
+
       />
       <DeleteAccount
         triggerDelete={triggerDelete}
         setTriggerDelete={setTriggerDelete}
         setTrigger={setTrigger}
+        userId={user.id}
+
       />
       <fieldset className="user-info">
         <legend>User Info</legend>
@@ -231,6 +239,13 @@ function Profile() {
         </div>
       </fieldset>
       <fieldset className="gamelist">
+        <div>
+          <label>
+            Add New Game :
+            <DataList />
+            <input type="submit" value="Add" />
+          </label>
+        </div>
         <legend> Games List</legend>
         {user.gamelist ? (
           <ul>
