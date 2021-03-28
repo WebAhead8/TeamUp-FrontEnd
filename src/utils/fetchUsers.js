@@ -52,12 +52,10 @@ export function updateUser(url, userData) {
   });
 }
 
-export function deleteUser(ID) {
-  return request(`${serverUrl}/users/${ID}`, {
+export function deleteUser(id) {
+  alert("id from fetch ", id)
+  return request(`${serverUrl}/users/${id}`, {
     method: "DELETE",
-    headers: {
-      "Content-type": "application/json",
-    },
   }).catch((err) => {
     console.log(`fetch Update User failed ${err}`);
   });

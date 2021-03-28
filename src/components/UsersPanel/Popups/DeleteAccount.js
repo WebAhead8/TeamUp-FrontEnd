@@ -5,7 +5,7 @@ import { deleteUser } from "../../../utils/fetchUsers";
 function DeleteAccount(props) {
   const delUser = () => {
     const url = "password";
-    deleteUser({ id: props.userId })
+    deleteUser(props.id)
       .then(() => {
         console.log("Changed Successfully");
         props.setTriggerDelete(false);

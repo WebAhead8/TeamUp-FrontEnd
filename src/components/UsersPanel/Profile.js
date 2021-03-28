@@ -181,7 +181,7 @@ function Profile() {
         triggerDelete={triggerDelete}
         setTriggerDelete={setTriggerDelete}
         setTrigger={setTrigger}
-        userId={user.id}
+        id={user.id}
 
       />
       <fieldset className="user-info">
