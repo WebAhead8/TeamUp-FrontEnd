@@ -7,22 +7,18 @@ import Edit from "./Popups/Edit";
 import EditEmail from "./Popups/EditEmail";
 import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
+import Notification from "../Notification";
 
 function Profile() {
+  // States
   const [user, setUser] = React.useState({});
-  const [games, setGames] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [trigger, setTrigger] = React.useState(false);
+  const [noti, setNoti] = React.useState(false);
   const [triggerEmail, setTriggerEmail] = React.useState(false);
   const [triggerPass, setTriggerPass] = React.useState(false);
   const [triggerUsername, setTriggerUsername] = React.useState(false);
   const [triggerDelete, setTriggerDelete] = React.useState(false);
-  const [isXboxChecked, setIsXboxChecked] = React.useState({
-    xbox: false,
-    ps: false,
-    mobile: false,
-    pc: false,
-  });
 
   // Check If there is a user logged in
   React.useEffect(() => {
@@ -38,7 +34,7 @@ function Profile() {
           console.log(error);
         });
     } else {
-      window.location.href = "/login";
+      setNoti(true);
     }
   }, [user]);
 
@@ -68,11 +64,14 @@ function Profile() {
 
     setUser({});
     setIsLoggedIn(false);
-    window.location.href = "/landingpage";
+    window.location.href = "/";
   };
 
   return (
     <div className="profile">
+      <Notification noti={noti} setNoti={setNoti} link="/login">
+        You Have To Login First
+      </Notification>
       <div className="profile-hdr">
         <header>
           <h1>Welcome, {user.username}</h1>
@@ -131,13 +130,13 @@ function Profile() {
         triggerEmail={triggerEmail}
         setTriggerEmail={setTriggerEmail}
         setTrigger={setTrigger}
-        userId={user.id}
+        user={user}
       />
       <EditPassword
         triggerPass={triggerPass}
         setTriggerPass={setTriggerPass}
         setTrigger={setTrigger}
-        userId={user.id}
+        user={user}
       />
       <EditUsername
         triggerUsername={triggerUsername}
@@ -286,9 +285,12 @@ function Profile() {
 
       <fieldset className="posts">
         <legend>My Posts :</legend>
+
+        <UsersPost user={user} />
       </fieldset>
-      <UsersPost user={user} />
-      <button onClick={logout}>logout</button>
+      <button onClick={logout} className="logout">
+        logout
+      </button>
     </div>
   );
 }

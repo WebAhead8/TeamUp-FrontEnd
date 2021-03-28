@@ -19,7 +19,7 @@ function Games() {
   }, [gameName]);
 
   return (
-    <div className="page">
+    <div className="gamespage">
       <div className="head-search">
         <h1>Search The Game You Want</h1>
         <form className="searchForm">
@@ -38,16 +38,17 @@ function Games() {
         <h3>TOP GAMES</h3>
         <ul className="game-list">
           {gamesList.map((game) => (
-            <li className="gameName" key={game.id}>
-              <Link
-                to={{
-                  pathname: "/rooms",
-                  search: `id=${game.id}=gname=${game.gname}`,
-                }}
-              >
+            <Link
+              className="a"
+              to={{
+                pathname: "/rooms",
+                search: `id=${game.id}=gname=${game.gname}`,
+              }}
+            >
+              <li className="gameName" key={game.id}>
                 {game.gname}
-              </Link>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

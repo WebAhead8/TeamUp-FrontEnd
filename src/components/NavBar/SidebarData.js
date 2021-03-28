@@ -11,7 +11,7 @@ import usersIcon from "../../Assets/Users.svg";
 export const SidebarData = [
   {
     title: "Home",
-    path: "/",
+    path: "/home",
     icon: <img src={homeIcon} alt="" />,
     cName: "nav-text",
   },
