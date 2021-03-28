@@ -191,6 +191,7 @@ footer {
       }
     }
   }
+
   .gamelist,
   .user-info {
     background-color: #c4c4c4;
@@ -216,7 +217,31 @@ footer {
       text-align: left;
       font-size: 24px;
     }
+    ul {
+      margin: 5px 15px;
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    label {
+      @include centerFlex(rows);
+      .gamedatalist {
+        @include centerFlex(rows);
+        select {
+          margin-left: 2px;
+          padding: 2px 12px;
+        }
+        .add-game {
+          padding: 0;
+          background: transparent;
+          border: none;
+          margin: 20px auto;
+          cursor: pointer;
+        }
+      }
+    }
   }
+  .posts,
   .platforms {
     background-color: #c4c4c4;
     color: #222831;
@@ -266,8 +291,8 @@ footer {
       background-color: #c4c4c4;
     }
   }
- 
-    .popup {
+
+  .popup {
     position: fixed;
     top: 30%;
     width: 90%;
@@ -285,17 +310,17 @@ footer {
         @include centerFlex(rows);
         margin-top: 20px;
         .no-btn {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 22px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          font-size: 22px;
         }
         .yes-btn {
           background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 22px;
-        color: #f26157;
+          border: none;
+          cursor: pointer;
+          font-size: 22px;
+          color: #f26157;
         }
       }
       form {
@@ -351,6 +376,4 @@ footer {
       }
     }
   }
-  
-  
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import { getUser, updateUser } from "../../utils/fetchUsers";
 import DataList from "../DataList";
+import UsersPost from "./UsersPost";
 import DeleteAccount from "./Popups/DeleteAccount";
 import Edit from "./Popups/Edit";
 import EditEmail from "./Popups/EditEmail";
 import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
-
 
 function Profile() {
   const [user, setUser] = React.useState({});
@@ -42,15 +42,14 @@ function Profile() {
     }
   }, [user]);
 
-
-
   // Update platforms when check or uncheck a box
   function updatePlatforms(plat) {
     if (user.platform) {
       if (!user.platform.includes(plat)) {
         user.platform.push(plat);
       } else {
-        user.platform.pop(plat);
+        const index = user.platform.indexOf(plat);
+        user.platform.splice(index, 1);
       }
     }
     const url = "platforms";
@@ -61,36 +60,6 @@ function Profile() {
         console.log(error);
       });
   }
-
-  function updateGamelist(game) {
-    if (user.gamelist) {
-      if (!user.gamelist.includes(game)) {
-        user.gamelist.push(game);
-      } else {
-        user.gamelist.pop(game);
-      }
-    }
-    const url = "gameslist";
-
-    updateUser(url, { id: user.id, gamelist: user.gamelist })
-      .then((data) => console.log("games ", data))
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-  // React.useEffect(() => {
-  //   const platforms = ["xbox", "ps", "pc", "mobile"];
-  //   if (user.platform) {
-  //     for (let i = 0; i <= platforms.length; i++) {
-  //       console.log("gtsgtgrsg ", platforms[i])
-  //       if (user.platform.includes(platforms[i])) {
-  //         const current = platforms[i];
-  //         setIsXboxChecked({ current: true });
-  //       }
-  //     }
-  //   }
-  //   console.log(isXboxChecked, "gggggggg");
-  // }, [user.platform]);
 
   // Logout Function
   const logout = () => {
@@ -169,21 +138,18 @@ function Profile() {
         setTriggerPass={setTriggerPass}
         setTrigger={setTrigger}
         userId={user.id}
-
       />
       <EditUsername
         triggerUsername={triggerUsername}
         setTriggerUsername={setTriggerUsername}
         setTrigger={setTrigger}
         userId={user.id}
-
       />
       <DeleteAccount
         triggerDelete={triggerDelete}
         setTriggerDelete={setTriggerDelete}
         setTrigger={setTrigger}
         id={user.id}
-
       />
 
       <fieldset className="user-info">
@@ -196,58 +162,114 @@ function Profile() {
 
       <fieldset className="platforms">
         <legend>platforms</legend>
-        {user.platform}
         <div className="container">
+          {/* Playstation */}
           <label>
             <img src="../../Assets/playstation.svg" alt="" />
-            <input
-              type="checkbox"
-              name="platforms"
-              value="ps"
-              checked={isXboxChecked.pc}
-              onChange={(e) => updatePlatforms(e.target.value)}
-            />
+            {user.platform ? (
+              user.platform.includes("ps") ? (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="ps"
+                  checked={true}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="ps"
+                  checked={false}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              )
+            ) : (
+              ""
+            )}
           </label>
           <label>
+            {/* Xbox */}
             <img src="../../Assets/xbox.svg" alt="" />
-            <input
-              type="checkbox"
-              name="platforms"
-              value="xbox"
-              checked={isXboxChecked.xbox}
-              onChange={(e) => updatePlatforms(e.target.value)}
-            />
+            {user.platform ? (
+              user.platform.includes("xbox") ? (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="xbox"
+                  checked={true}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="xbox"
+                  checked={false}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              )
+            ) : (
+              ""
+            )}
           </label>
           <label>
+            {/* PC */}
             <img src="../../Assets/pc.svg" alt="" />
-            <input
-              type="checkbox"
-              name="platforms"
-              value="pc"
-              checked={isXboxChecked.pc}
-              onChange={(e) => updatePlatforms(e.target.value)}
-            />
+            {user.platform ? (
+              user.platform.includes("pc") ? (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="pc"
+                  checked={true}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="pc"
+                  checked={false}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              )
+            ) : (
+              ""
+            )}
           </label>
           <label>
             <img src="../../Assets/mobile.svg" alt="" />
-            <input
-              type="checkbox"
-              name="platforms"
-              value="mobile"
-              checked={isXboxChecked.mobile}
-              onChange={(e) => updatePlatforms(e.target.value)}
-            />
+            {user.platform ? (
+              user.platform.includes("mobile") ? (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="mobile"
+                  checked={true}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="platforms"
+                  value="mobile"
+                  checked={false}
+                  onChange={(e) => updatePlatforms(e.target.value)}
+                />
+              )
+            ) : (
+              ""
+            )}
           </label>
         </div>
       </fieldset>
       <fieldset className="gamelist">
-        <div>
-          <label>
-            Add New Game :
-            <DataList />
-            <input type="submit" value="Add" />
-          </label>
-        </div>
+        <label>
+          Add New Game : <br />
+          <DataList user={user} />
+        </label>
+        {/* <input type="button" value="Add" className="add-game" /> */}
         <legend> Games List</legend>
         {user.gamelist ? (
           <ul>
@@ -262,6 +284,10 @@ function Profile() {
         )}
       </fieldset>
 
+      <fieldset className="posts">
+        <legend>My Posts :</legend>
+      </fieldset>
+      <UsersPost user={user} />
       <button onClick={logout}>logout</button>
     </div>
   );

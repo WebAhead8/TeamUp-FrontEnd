@@ -357,6 +357,66 @@ footer p {
   font-size: 24px;
 }
 
+.profile .gamelist ul,
+.profile .user-info ul {
+  margin: 5px 15px;
+}
+
+.profile .gamelist ul li,
+.profile .user-info ul li {
+  margin-bottom: 5px;
+}
+
+.profile .gamelist label,
+.profile .user-info label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
+}
+
+.profile .gamelist label .gamedatalist,
+.profile .user-info label .gamedatalist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
+}
+
+.profile .gamelist label .gamedatalist select,
+.profile .user-info label .gamedatalist select {
+  margin-left: 2px;
+  padding: 2px 12px;
+}
+
+.profile .gamelist label .gamedatalist .add-game,
+.profile .user-info label .gamedatalist .add-game {
+  padding: 0;
+  background: transparent;
+  border: none;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.profile .posts,
 .profile .platforms {
   background-color: #c4c4c4;
   color: #222831;
@@ -370,6 +430,7 @@ footer p {
   width: 400px;
 }
 
+.profile .posts legend,
 .profile .platforms legend {
   font-weight: bold;
   font-size: 25px;
@@ -378,6 +439,7 @@ footer p {
   text-transform: uppercase;
 }
 
+.profile .posts .container,
 .profile .platforms .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -389,10 +451,12 @@ footer p {
   font-size: 24px;
 }
 
+.profile .posts .container *,
 .profile .platforms .container * {
   margin: 8px;
 }
 
+.profile .posts .container label,
 .profile .platforms .container label {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -409,10 +473,12 @@ footer p {
           flex-direction: column;
 }
 
+.profile .posts .container label input[type="ckeckbox"],
 .profile .platforms .container label input[type="ckeckbox"] {
   border: #3b6978 3px solid;
 }
 
+.profile .posts .container label input[type="ckeckbox"]:checked,
 .profile .platforms .container label input[type="ckeckbox"]:checked {
   background-color: aqua;
 }
