@@ -1,10 +1,10 @@
-import React from "react";
-import mainFetch from "../../utils/mainFetch";
+import React from 'react';
+import mainFetch from '../../utils/mainFetch';
 
 function Lobby() {
   const [posts, setPosts] = React.useState([]);
   React.useEffect(() => {
-    const url = "/AllPosts";
+    const url = '/AllPosts';
     mainFetch(url).then((data) => {
       setPosts(data);
     });
@@ -13,7 +13,11 @@ function Lobby() {
   return (
     <>
       {posts.map((post) => (
-        <h1>{post.content}</h1>
+        <div>
+          <h1>{post.content}</h1>
+          <p>{post.username}</p>
+          <p>{post.liked}</p>
+        </div>
       ))}
     </>
   );
