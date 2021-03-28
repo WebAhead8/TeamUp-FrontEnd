@@ -157,6 +157,7 @@ function Profile() {
           Delete Your Account
         </a>
       </Edit>
+
       <EditEmail
         triggerEmail={triggerEmail}
         setTriggerEmail={setTriggerEmail}
@@ -184,6 +185,7 @@ function Profile() {
         id={user.id}
 
       />
+
       <fieldset className="user-info">
         <legend>User Info</legend>
         <i>First Name: {user.firstname}</i>
