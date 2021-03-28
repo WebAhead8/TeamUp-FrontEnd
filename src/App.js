@@ -21,12 +21,12 @@ function App() {
   return (
     <>
       <Router>
+        <Nav />
         <div className="menu-logo-hdr">
-          <Nav />
           <Logo />
         </div>
         <Switch>
-          <Route path="/Home" exact component={Home} />
+          <Route path="/home" exact component={Home} />
           <Route path="/games/" exact component={Games} />
           <Route path="/rooms" component={Rooms} />
           <Route path="/insideRoom" exact component={InsideRoom} />

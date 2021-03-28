@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #060b26;
+  background-color: #393e46;
   height: 80px;
   display: flex;
   justify-content: flex-start;
@@ -7,7 +7,7 @@
 }
 
 .nav-menu {
-  background-color: #020518;
+  background-color: #393e46;
   width: 160px;
   height: 100%;
   position: fixed;
@@ -39,6 +39,11 @@
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.nav-text a:hover {
+  color: #cfdbd5;
+  border-bottom: #cfdbd5 2px solid;
 }
 .nav-text a img {
   width: 25px;

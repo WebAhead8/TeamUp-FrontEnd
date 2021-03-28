@@ -18,37 +18,52 @@ function Rooms() {
   }, []);
 
   return (
-    <div>
+    <div className="rooms">
       <h1 className="insideGameNameRoom">{gname} ROOMS </h1>
-      <div className="CreateRoom-link">
-        <Link to={{ pathname: "/createRoom", search: `id=${id}=${gname}` }}>
-          Create Room
-        </Link>
-      </div>
-      <div className="LeaveGame-link">
-        <Link to={{ pathname: "/games" }}>Leave Game</Link>
+      <div className="links">
+        <div className="CreateRoom-link">
+          <Link
+            to={{ pathname: "/createRoom", search: `id=${id}=${gname}` }}
+            className="a"
+          >
+            Create Room
+          </Link>
+        </div>
+        <div className="LeaveGame-link">
+          <Link className="a" to={{ pathname: "/games" }}>
+            Leave Game
+          </Link>
+        </div>
       </div>
       <ul className="roomsList">
         {rooms.map((room) => (
           <div className="outsideRoom">
             <div className="roomdesc">
-              <p>{room.rname}</p>
-              <p>{room.descr}</p>
-              <p>{room.land}</p>
-              <p>{room.age}</p>
-              <p>{room.skill}</p>
-              <p>{room.platform}</p>
+              <h1>{room.rname}</h1>
+              <div className="desc">
+                <div>
+                  Rules :<p>{room.descr}</p>
+                </div>
+                <div>
+                  <p>Language : {room.lang}</p>
+                  <p>Age : {room.age}</p>
+                  <p>Skills : {room.skill}</p>
+                  <p>Platform : {room.platform}</p>
+                </div>
+              </div>
+              <div className="joinbtn">
+                <li className="a" key={room.id}>
+                  <Link
+                    to={{
+                      pathname: "/insideRoom",
+                      search: `id=${id}=${gname}`,
+                    }}
+                  >
+                    JOIN
+                  </Link>
+                </li>
+              </div>
             </div>
-            <li className="room" key={room.id}>
-              <Link
-                to={{
-                  pathname: "/insideRoom",
-                  search: `id=${id}=${gname}`,
-                }}
-              >
-                JOIN
-              </Link>
-            </li>
           </div>
         ))}
       </ul>
