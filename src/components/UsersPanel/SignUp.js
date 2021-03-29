@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { createUser } from "../../utils/fetchUsers";
+import Avatar from "./Popups/Avatar";
+import Popup from "reactjs-popup";
+import mainFetch from "../../utils/mainFetch";
 
 function SignUp() {
+  const [avatarIcon, setAvatarIcon] = React.useState(
+    "https://cdn0.iconfinder.com/data/icons/people-12/24/Anonymous-2-512.png"
+  );
+  const [avatarImgFile, setAvatarImgFile] = React.useState([]);
+  const [inputValue, setInputValue] = React.useState("Chosse avatar");
+
   const [signup, setSignup] = useState({
     firstname: "",
     lastname: "",
@@ -9,8 +18,15 @@ function SignUp() {
     email: " ",
     pass: "",
     pass2: "",
+    avatarIcon: avatarIcon,
   });
   const [worrning, setWorrning] = useState("");
+
+  React.useEffect(() => {
+    mainFetch("/avatarImg").then((data) => {
+      setAvatarImgFile(data);
+    });
+  }, []);
 
   useEffect(() => {
     const token = window.localStorage.getItem("access_token");
@@ -41,7 +57,6 @@ function SignUp() {
       };
     });
   }
-
   return (
     <div className="login">
       <header>
@@ -80,7 +95,6 @@ function SignUp() {
                 />
               </label>
             </div>
-
             <label>Username :</label>
             <input
               type="text"
@@ -109,7 +123,6 @@ function SignUp() {
               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
               required
             />
-
             <label>Confirm Password :</label>
             <input
               type="password"
@@ -118,8 +131,31 @@ function SignUp() {
               onChange={handelChange}
               required
             />
+            <label>choose an avatar</label>
+            <Popup
+              trigger={
+                <input type="button" value={inputValue} name="avatarIcon" />
+              }
+              modal
+              nested
+            >
+              {(close) => (
+                <div className="modal">
+                  <button className="close" onClick={close}>
+                    &times;
+                  </button>
+                  <div className="avatar">
+                    <Avatar
+                      avatarImgFile={avatarImgFile}
+                      setAvatarIcon={setAvatarIcon}
+                      setInputValue={setInputValue}
+                      setSignup={setSignup}
+                    />
+                  </div>
+                </div>
+              )}
+            </Popup>
             <i className="toto">
-              {" "}
               Already have an account? <a href="/login"> Login </a>{" "}
             </i>
             <output className="error">{worrning}</output>

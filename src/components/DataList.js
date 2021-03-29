@@ -31,7 +31,6 @@ function DataList({ user }) {
       .catch((err) => {
         console.log(err);
       });
-    console.log("games ", games);
   }, []);
   return (
     <div className="gamedatalist">

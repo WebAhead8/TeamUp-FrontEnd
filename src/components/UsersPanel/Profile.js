@@ -20,15 +20,29 @@ function Profile() {
   const [triggerUsername, setTriggerUsername] = React.useState(false);
   const [triggerDelete, setTriggerDelete] = React.useState(false);
 
-  // Check If there is a user logged in
+  const [platform, setPlatform] = React.useState([
+    { id: "xbox", checked: false, src: "../../Assets/xbox.svg" },
+    { id: "ps", checked: false, src: "../../Assets/playstation.svg" },
+    { id: "pc", checked: false, src: "../../Assets/pc.svg" },
+    { id: "mobile", checked: false, src: "../../Assets/mobile.svg" },
+  ]);
+
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
-
     if (token) {
       getUser(token)
         .then((data) => {
           setUser(data);
           setIsLoggedIn(true);
+          setPlatform(
+            platform.map((platf) => {
+              if (data.platform.includes(platf.id)) {
+                return { ...platf, checked: true };
+              } else {
+                return platf;
+              }
+            })
+          );
         })
         .catch((error) => {
           console.log(error);
@@ -36,21 +50,52 @@ function Profile() {
     } else {
       setNoti(true);
     }
-  }, [user]);
+  }, []);
+
+  // Check If there is a user logged in
+  // React.useEffect(() => {
+  //   const token = window.localStorage.getItem("access_token");
+  //   if (token) {
+  //     getUser(token)
+  //       .then((data) => {
+  //         setUser(data);
+  //         setIsLoggedIn(true);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   } else {
+  //     setNoti(true);
+  //   }
+  // }, [platform]);
 
   // Update platforms when check or uncheck a box
-  function updatePlatforms(plat) {
-    if (user.platform) {
-      if (!user.platform.includes(plat)) {
-        user.platform.push(plat);
-      } else {
-        const index = user.platform.indexOf(plat);
-        user.platform.splice(index, 1);
-      }
-    }
-    const url = "platforms";
 
-    updateUser(url, { id: user.id, platform: user.platform })
+  function updatePlatforms(plat) {
+    setPlatform(
+      platform.map((pt) => {
+        if (pt.id === plat) {
+          return {
+            ...pt,
+            checked: !pt.checked,
+          };
+        }
+        return pt;
+      })
+    );
+
+    let ptf = platform.reduce((acc, { id, checked }) => {
+      if (checked) {
+        acc.push(id);
+      }
+      return acc;
+    }, []);
+
+    const url = "platforms";
+    updateUser(url, {
+      id: user.id,
+      platform: ptf,
+    })
       .then((data) => console.log("platform ", data))
       .catch((error) => {
         console.log(error);
@@ -74,7 +119,11 @@ function Profile() {
       </Notification>
       <div className="profile-hdr">
         <header>
+          <div>
+            <img src={user.avataricon} />
+          </div>
           <h1>Welcome, {user.username}</h1>
+
           <button
             onClick={() => {
               setTrigger(!trigger);
@@ -163,104 +212,18 @@ function Profile() {
         <legend>platforms</legend>
         <div className="container">
           {/* Playstation */}
-          <label>
-            <img src="../../Assets/playstation.svg" alt="" />
-            {user.platform ? (
-              user.platform.includes("ps") ? (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="ps"
-                  checked={true}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              ) : (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="ps"
-                  checked={false}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              )
-            ) : (
-              ""
-            )}
-          </label>
-          <label>
-            {/* Xbox */}
-            <img src="../../Assets/xbox.svg" alt="" />
-            {user.platform ? (
-              user.platform.includes("xbox") ? (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="xbox"
-                  checked={true}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              ) : (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="xbox"
-                  checked={false}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              )
-            ) : (
-              ""
-            )}
-          </label>
-          <label>
-            {/* PC */}
-            <img src="../../Assets/pc.svg" alt="" />
-            {user.platform ? (
-              user.platform.includes("pc") ? (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="pc"
-                  checked={true}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              ) : (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="pc"
-                  checked={false}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              )
-            ) : (
-              ""
-            )}
-          </label>
-          <label>
-            <img src="../../Assets/mobile.svg" alt="" />
-            {user.platform ? (
-              user.platform.includes("mobile") ? (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="mobile"
-                  checked={true}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              ) : (
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value="mobile"
-                  checked={false}
-                  onChange={(e) => updatePlatforms(e.target.value)}
-                />
-              )
-            ) : (
-              ""
-            )}
-          </label>
+          {platform.map((plat) => (
+            <label>
+              <img src={plat.src} />
+              <input
+                type="checkbox"
+                name="platforms"
+                value={plat.id}
+                checked={plat.checked}
+                onClick={(e) => updatePlatforms(e.target.value)}
+              ></input>
+            </label>
+          ))}
         </div>
       </fieldset>
       <fieldset className="gamelist">

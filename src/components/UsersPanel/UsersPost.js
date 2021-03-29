@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function UsersPost({ user }) {
   const [posts, setPosts] = React.useState({});
-  console.log(posts, "these are my posts");
+
   React.useEffect(() => {
     mainFetch(`/posts/${user.id}`)
       .then((data) => {
