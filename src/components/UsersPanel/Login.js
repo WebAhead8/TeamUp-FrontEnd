@@ -67,12 +67,7 @@ function Login() {
     <div className="login">
       <header>
         <div className="login-hdr">
-          <img
-            src="../../Assets/loginHero.svg"
-            alt=""
-            width="161px"
-            height="128px"
-          />
+          <img src="../../Assets/loginHero.svg" alt="" />
           <label>Login</label>
         </div>
       </header>

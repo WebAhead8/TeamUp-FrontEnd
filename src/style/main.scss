@@ -25,9 +25,18 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #222831;
+  // background-color: #222831;
+  background-image: url("../Assets/bg.jpeg");
+  background-repeat: repeat;
+  background-size: 500px;
   color: #c4c4c4;
   font-family: "Play", sans-serif;
+  @media only screen and (min-width: 768px) {
+    background-size: 1000px;
+  }
+  @media only screen and (min-width: 1450px) {
+    background-size: 1500px;
+  }
 }
 .logo-container {
   font-family: "Permanent Marker", cursive;
@@ -35,12 +44,24 @@ body {
     color: #3b6978;
     text-decoration: none;
     font-size: 24px;
+    @media only screen and (min-width: 768px) {
+      font-size: 34px;
+    }
+    @media only screen and (min-width: 1450px) {
+      font-size: 44px;
+    }
     span {
       color: #eeeeee;
     }
   }
 }
-
+.menu-logo-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -50px;
+}
 /* Landing Page */
 
 .hero {
@@ -48,6 +69,12 @@ body {
   margin-top: 60px;
   .container {
     @include centerFlex(column);
+
+    @media only screen and (min-width: 1450px) {
+      display: grid;
+      grid-template-columns: 600px 600px;
+      grid-gap: 50px;
+    }
     .left-col {
       display: flex;
       justify-content: space-between;
@@ -56,8 +83,18 @@ body {
       font-size: 24px;
       line-height: 28px;
       text-align: center;
+      transition: all 0.3s ease-in-out;
+      @media only screen and (min-width: 768px) {
+        font-size: 34px;
+      }
+      @media only screen and (min-width: 1450px) {
+        line-height: 38px;
+      }
       p {
         margin-bottom: 20px;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 40px;
+        }
       }
       a {
         text-decoration: none;
@@ -65,7 +102,9 @@ body {
         background-color: #3b6978;
         padding: 0.7rem 2rem;
         transition: all 0.3s ease;
-
+        @media only screen and (min-width: 768px) {
+          padding: 1rem 3rem;
+        }
         &:hover {
           background-color: #c4c4c4;
           color: #3b6978;
@@ -78,6 +117,14 @@ body {
     .hero {
       width: 263px;
       height: 180px;
+      @media only screen and (min-width: 768px) {
+        width: 463px;
+        height: 380px;
+      }
+      @media only screen and (min-width: 1450px) {
+        width: 563px;
+        height: 480px;
+      }
     }
   }
 }
@@ -97,16 +144,60 @@ footer {
 /* Sign Up & Login */
 .login {
   @include centerFlex(column);
+  @media only screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    header {
+      .login-hdr {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        label {
+          font-size: 3.3em;
+        }
+        img {
+          width: 400px;
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 1450px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+  }
   header {
     padding: 55px;
     .login-hdr {
       display: grid;
       grid-template-columns: 1fr 1fr;
       text-align: center;
+      @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        text-align: center;
+      }
       label {
         @include centerFlex(column);
-        font-size: 24px;
+        font-size: 2.2em;
         font-weight: bold;
+        @media only screen and (min-width: 768px) {
+          font-size: 3.3em;
+        }
+        @media only screen and (min-width: 1450px) {
+          font-size: 4.3em;
+        }
+      }
+      img {
+        width: 200px;
+        @media only screen and (min-width: 768px) {
+          width: 300px;
+        }
+        @media only screen and (min-width: 1450px) {
+          width: 400px;
+        }
       }
     }
   }
@@ -116,14 +207,27 @@ footer {
     width: 371px;
     height: auto;
     padding: 10px;
+    @media only screen and (min-width: 768px) {
+      width: 471px;
+    }
+    @media only screen and (min-width: 1450px) {
+      width: 571px;
+    }
     .container {
       @include centerFlex(column);
+
       .form {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
         * {
           padding: 10px;
+          @media only screen and (min-width: 768px) {
+            font-size: 1.5em;
+          }
+          @media only screen and (min-width: 1450px) {
+            font-size: 2em;
+          }
         }
         input {
           background-color: #eeeeee;
@@ -137,6 +241,7 @@ footer {
           color: #c4c4c4;
           font-weight: bold;
           transition: all 0.3s ease;
+          cursor: pointer;
           &:hover {
             background-color: #c4c4c4;
             color: #3b6978;
@@ -154,6 +259,12 @@ footer {
             &:hover {
               color: #3b6978;
             }
+            @media only screen and (min-width: 768px) {
+              font-size: 30px;
+            }
+            @media only screen and (min-width: 1450px) {
+              font-size: 40px;
+            }
           }
         }
         .user-hdr {
@@ -163,8 +274,24 @@ footer {
             display: flex;
             justify-content: space-between;
             flex-direction: column;
+            @media only screen and (min-width: 768px) {
+              font-size: 26px;
+            }
+            @media only screen and (min-width: 1450px) {
+              font-size: 26px;
+            }
             input {
               width: 130px;
+              @media only screen and (min-width: 768px) {
+                width: 150px;
+                padding: 10px 22px;
+                font-size: 26px;
+              }
+              @media only screen and (min-width: 1450px) {
+                width: 150px;
+                padding: 10px 22px;
+                font-size: 26px;
+              }
             }
           }
         }
@@ -191,6 +318,9 @@ footer {
       }
     }
   }
+  .logout {
+    cursor: pointer;
+  }
   .gamelist,
   .user-info {
     background-color: #c4c4c4;
@@ -216,7 +346,31 @@ footer {
       text-align: left;
       font-size: 24px;
     }
+    ul {
+      margin: 5px 15px;
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    label {
+      @include centerFlex(rows);
+      .gamedatalist {
+        @include centerFlex(rows);
+        select {
+          margin-left: 2px;
+          padding: 2px 12px;
+        }
+        .add-game {
+          padding: 0;
+          background: transparent;
+          border: none;
+          margin: 20px auto;
+          cursor: pointer;
+        }
+      }
+    }
   }
+  .posts,
   .platforms {
     background-color: #c4c4c4;
     color: #222831;
@@ -228,7 +382,22 @@ footer {
     border-radius: 42px;
     margin: 25px;
     width: 400px;
-
+    ul {
+      list-style: none;
+    }
+    .myposts {
+      background-color: #222831;
+      padding: 12px;
+      border-radius: 12px;
+      color: #eeeeee;
+      margin-bottom: 5px;
+      i {
+        margin-left: 15px;
+        * {
+          margin-left: 8px;
+        }
+      }
+    }
     legend {
       @include legendStyle();
     }
@@ -266,8 +435,8 @@ footer {
       background-color: #c4c4c4;
     }
   }
- 
-    .popup {
+
+  .popup {
     position: fixed;
     top: 30%;
     width: 90%;
@@ -285,17 +454,17 @@ footer {
         @include centerFlex(rows);
         margin-top: 20px;
         .no-btn {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 22px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          font-size: 22px;
         }
         .yes-btn {
           background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 22px;
-        color: #f26157;
+          border: none;
+          cursor: pointer;
+          font-size: 22px;
+          color: #f26157;
         }
       }
       form {
@@ -351,6 +520,259 @@ footer {
       }
     }
   }
-  
-  
+  @media only screen and (min-width: 768px) {
+    display: grid;
+    grid-gap: 10px;
+
+    grid-template-columns: repeat(4, [col] auto);
+    grid-template-rows: repeat(4, [row] auto);
+
+    .profile-hdr {
+      grid-column: col / span 4;
+      grid-row: row;
+    }
+    .user-info {
+      grid-column: col;
+      grid-row: row 2;
+    }
+    .platforms {
+      grid-column: col 2 / span 3;
+      grid-row: row 2;
+    }
+    .gamelist {
+      grid-column: col;
+      grid-row: row 3;
+    }
+    .posts {
+      grid-column: col 2 / span 3;
+      grid-row: row 3;
+    }
+    .logout {
+      grid-column: col / span 4;
+      grid-row: row 4;
+    }
+    .popup {
+      position: fixed;
+      top: 30%;
+      left: 20%;
+      width: 90%;
+      height: 50vh;
+    }
+  }
+  @media only screen and (min-width: 1450px) {
+    display: grid;
+    grid-gap: 10px;
+
+    grid-template-columns: repeat(4, [col] auto);
+    grid-template-rows: repeat(5, [row] auto);
+
+    .profile-hdr {
+      grid-column: col / span 4;
+      grid-row: row;
+    }
+    .user-info {
+      grid-column: col / span 2;
+      grid-row: row 2;
+      width: 800px;
+    }
+    .platforms {
+      grid-column: col 2 / span 2;
+      grid-row: row 2;
+      width: 500px;
+    }
+    .gamelist {
+      grid-column: col 2 / span 2;
+      grid-row: row 3;
+      width: 500px;
+    }
+    .posts {
+      grid-column: col;
+      grid-row: row 3;
+      width: 800px;
+      min-height: 300px;
+    }
+    .logout {
+      grid-column: col / span 4;
+      grid-row: row 5;
+    }
+    .popup {
+      position: fixed;
+      top: 30%;
+      left: 30%;
+      width: 90%;
+      height: 50vh;
+    }
+  }
+}
+/* Lobby */
+.allposts {
+  @include centerFlex(column);
+  margin: 15px;
+  padding: 10px;
+  @media only screen and (min-width: 768px) {
+    margin: 25px;
+    padding: 20px;
+  }
+  @media only screen and (min-width: 1450px) {
+    margin: 45px;
+    padding: 40px;
+  }
+  .post {
+    background-color: #eeeeee;
+    margin-bottom: 10px;
+    width: 100%;
+    color: black;
+    h4 {
+      padding: 8px 12px;
+      @media only screen and (min-width: 768px) {
+        font-size: 25px;
+        padding: 12px 22px;
+      }
+    }
+    h1 {
+      background-color: #c4c4c4;
+      color: #3b6978;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+/* Games */
+
+.gamespage {
+  @include centerFlex(column);
+  .head-search {
+    form {
+      @include centerFlex(column);
+      margin: 20px;
+      input {
+        padding: 12px 40px;
+        font-size: 18px;
+      }
+    }
+  }
+  .gamesList {
+    background-color: #222831;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    @media only screen and (min-width: 768px) {
+      width: 70%;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 80%;
+    }
+    h3 {
+      font-size: 35px;
+      margin: 10px;
+    }
+    ul {
+      width: 100%;
+      list-style: none;
+      @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 10px;
+      }
+      @media only screen and (min-width: 1450px) {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px;
+      }
+      .a {
+        text-decoration: none;
+      }
+      li {
+        color: #eeeeee;
+        font-size: 30px;
+        margin-bottom: 10px;
+        padding: 12px 40px;
+        border: #c4c4c4 3px solid;
+
+        &:hover {
+          color: #f26157;
+          border: #f26157 3px solid;
+        }
+      }
+    }
+  }
+}
+
+/* Rooms */
+.rooms {
+  @include centerFlex(column);
+  .insideGameNameRoom {
+    background-color: #222831;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 18px 45px;
+    margin: 20px;
+  }
+  .links {
+    @include centerFlex(row);
+    .CreateRoom-link,
+    .LeaveGame-link {
+      margin: 15px;
+      a {
+        text-decoration: none;
+        color: #eeeeee;
+        font-size: 20px;
+        border: #eeeeee 3px solid;
+        padding: 8px 12px;
+        background-color: #222831;
+
+        &:hover {
+          color: #f26157;
+          border: #f26157 3px solid;
+        }
+      }
+    }
+  }
+  .roomsList {
+    margin-top: 20px;
+    @media only screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: repeat(auto);
+      grid-gap: 10px;
+    }
+    @media only screen and (min-width: 1450px) {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: repeat(auto);
+      grid-gap: 10px;
+    }
+    .outsideRoom {
+      background-color: #c4c4c4;
+      color: black;
+      padding: 25px;
+      width: 400px;
+      margin: 15px;
+
+      h1 {
+        color: #3b6978;
+        border-bottom: #3b6978 2px solid;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+      }
+      .desc {
+        display: grid;
+        grid-template-columns: auto auto;
+        font-size: 20px;
+        grid-gap: 10px;
+        margin: 15px;
+      }
+      .joinbtn {
+        @include centerFlex(columns);
+        list-style: none;
+        margin: 20px;
+        a {
+          background-color: #3b6978;
+          text-decoration: none;
+          color: #c4c4c4;
+          padding: 12px 22px;
+        }
+      }
+    }
+  }
 }

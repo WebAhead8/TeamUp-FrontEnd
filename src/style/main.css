@@ -8,9 +8,23 @@
 }
 
 body {
-  background-color: #222831;
+  background-image: url("../Assets/bg.jpeg");
+  background-repeat: repeat;
+  background-size: 500px;
   color: #c4c4c4;
   font-family: "Play", sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-size: 1000px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  body {
+    background-size: 1500px;
+  }
 }
 
 .logo-container {
@@ -23,8 +37,34 @@ body {
   font-size: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+  .logo-container .logo {
+    font-size: 34px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .logo-container .logo {
+    font-size: 44px;
+  }
+}
+
 .logo-container .logo span {
   color: #eeeeee;
+}
+
+.menu-logo-hdr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  top: -50px;
 }
 
 /* Landing Page */
@@ -49,6 +89,16 @@ body {
   flex-direction: column;
 }
 
+@media only screen and (min-width: 1450px) {
+  .hero .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 600px 600px;
+    grid-template-columns: 600px 600px;
+    grid-gap: 50px;
+  }
+}
+
 .hero .container .left-col {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -66,10 +116,30 @@ body {
   font-size: 24px;
   line-height: 28px;
   text-align: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero .container .left-col {
+    font-size: 34px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .hero .container .left-col {
+    line-height: 38px;
+  }
 }
 
 .hero .container .left-col p {
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero .container .left-col p {
+    margin-bottom: 40px;
+  }
 }
 
 .hero .container .left-col a {
@@ -79,6 +149,12 @@ body {
   padding: 0.7rem 2rem;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero .container .left-col a {
+    padding: 1rem 3rem;
+  }
 }
 
 .hero .container .left-col a:hover {
@@ -93,6 +169,20 @@ body {
 .hero .right-col .hero {
   width: 263px;
   height: 180px;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero .right-col .hero {
+    width: 463px;
+    height: 380px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .hero .right-col .hero {
+    width: 563px;
+    height: 480px;
+  }
 }
 
 /* Footer */
@@ -125,6 +215,41 @@ footer p {
   flex-direction: column;
 }
 
+@media only screen and (min-width: 768px) {
+  .login {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto;
+    grid-template-columns: auto auto;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+  }
+  .login header .login-hdr {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .login header .login-hdr label {
+    font-size: 3.3em;
+  }
+  .login header .login-hdr img {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto;
+    grid-template-columns: auto auto;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+  }
+}
+
 .login header {
   padding: 55px;
 }
@@ -135,6 +260,17 @@ footer p {
   -ms-grid-columns: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .login header .login-hdr {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    text-align: center;
+  }
 }
 
 .login header .login-hdr label {
@@ -151,8 +287,36 @@ footer p {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  font-size: 24px;
+  font-size: 2.2em;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+  .login header .login-hdr label {
+    font-size: 3.3em;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login header .login-hdr label {
+    font-size: 4.3em;
+  }
+}
+
+.login header .login-hdr img {
+  width: 200px;
+}
+
+@media only screen and (min-width: 768px) {
+  .login header .login-hdr img {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login header .login-hdr img {
+    width: 400px;
+  }
 }
 
 .login .login-form {
@@ -161,6 +325,18 @@ footer p {
   width: 371px;
   height: auto;
   padding: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .login .login-form {
+    width: 471px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login .login-form {
+    width: 571px;
+  }
 }
 
 .login .login-form .container {
@@ -196,6 +372,18 @@ footer p {
   padding: 10px;
 }
 
+@media only screen and (min-width: 768px) {
+  .login .login-form .container .form * {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login .login-form .container .form * {
+    font-size: 2em;
+  }
+}
+
 .login .login-form .container .form input {
   background-color: #eeeeee;
   border: none;
@@ -210,6 +398,7 @@ footer p {
   font-weight: bold;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .login .login-form .container .form button:hover {
@@ -231,6 +420,18 @@ footer p {
 
 .login .login-form .container .form .toto a:hover {
   color: #3b6978;
+}
+
+@media only screen and (min-width: 768px) {
+  .login .login-form .container .form .toto a {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login .login-form .container .form .toto a {
+    font-size: 40px;
+  }
 }
 
 .login .login-form .container .form .user-hdr {
@@ -255,8 +456,36 @@ footer p {
   flex-direction: column;
 }
 
+@media only screen and (min-width: 768px) {
+  .login .login-form .container .form .user-hdr .names {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login .login-form .container .form .user-hdr .names {
+    font-size: 26px;
+  }
+}
+
 .login .login-form .container .form .user-hdr .names input {
   width: 130px;
+}
+
+@media only screen and (min-width: 768px) {
+  .login .login-form .container .form .user-hdr .names input {
+    width: 150px;
+    padding: 10px 22px;
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .login .login-form .container .form .user-hdr .names input {
+    width: 150px;
+    padding: 10px 22px;
+    font-size: 26px;
+  }
 }
 
 /* Profile */
@@ -303,6 +532,10 @@ footer p {
 .profile .profile-hdr header button {
   background: transparent;
   border: none;
+  cursor: pointer;
+}
+
+.profile .logout {
   cursor: pointer;
 }
 
@@ -358,6 +591,66 @@ footer p {
   font-size: 24px;
 }
 
+.profile .gamelist ul,
+.profile .user-info ul {
+  margin: 5px 15px;
+}
+
+.profile .gamelist ul li,
+.profile .user-info ul li {
+  margin-bottom: 5px;
+}
+
+.profile .gamelist label,
+.profile .user-info label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: rows;
+  flex-direction: rows;
+}
+
+.profile .gamelist label .gamedatalist,
+.profile .user-info label .gamedatalist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: rows;
+  flex-direction: rows;
+}
+
+.profile .gamelist label .gamedatalist select,
+.profile .user-info label .gamedatalist select {
+  margin-left: 2px;
+  padding: 2px 12px;
+}
+
+.profile .gamelist label .gamedatalist .add-game,
+.profile .user-info label .gamedatalist .add-game {
+  padding: 0;
+  background: transparent;
+  border: none;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.profile .posts,
 .profile .platforms {
   background-color: #c4c4c4;
   color: #222831;
@@ -371,6 +664,31 @@ footer p {
   width: 400px;
 }
 
+.profile .posts ul,
+.profile .platforms ul {
+  list-style: none;
+}
+
+.profile .posts .myposts,
+.profile .platforms .myposts {
+  background-color: #222831;
+  padding: 12px;
+  border-radius: 12px;
+  color: #eeeeee;
+  margin-bottom: 5px;
+}
+
+.profile .posts .myposts i,
+.profile .platforms .myposts i {
+  margin-left: 15px;
+}
+
+.profile .posts .myposts i *,
+.profile .platforms .myposts i * {
+  margin-left: 8px;
+}
+
+.profile .posts legend,
 .profile .platforms legend {
   font-weight: bold;
   font-size: 25px;
@@ -380,6 +698,7 @@ footer p {
   text-transform: uppercase;
 }
 
+.profile .posts .container,
 .profile .platforms .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -391,10 +710,12 @@ footer p {
   font-size: 24px;
 }
 
+.profile .posts .container *,
 .profile .platforms .container * {
   margin: 8px;
 }
 
+.profile .posts .container label,
 .profile .platforms .container label {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -411,10 +732,12 @@ footer p {
   flex-direction: column;
 }
 
+.profile .posts .container label input[type="ckeckbox"],
 .profile .platforms .container label input[type="ckeckbox"] {
   border: #3b6978 3px solid;
 }
 
+.profile .posts .container label input[type="ckeckbox"]:checked,
 .profile .platforms .container label input[type="ckeckbox"]:checked {
   background-color: aqua;
 }
@@ -608,3 +931,405 @@ footer p {
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
+
+@media only screen and (min-width: 768px) {
+  /* .profile {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 10px;
+    -ms-grid-columns: ([col] auto) [4];
+    grid-template-columns: repeat(4, [col] auto);
+    -ms-grid-rows: ([row] auto) [4];
+    grid-template-rows: repeat(4, [row] auto);
+  } */
+  .profile .profile-hdr {
+    grid-column: col / span 4;
+    grid-row: row;
+  }
+  .profile .user-info {
+    grid-column: col;
+    grid-row: row 2;
+  }
+  .profile .platforms {
+    grid-column: col 2 / span 3;
+    grid-row: row 2;
+  }
+  .profile .gamelist {
+    grid-column: col;
+    grid-row: row 3;
+  }
+  .profile .posts {
+    grid-column: col 2 / span 3;
+    grid-row: row 3;
+  }
+  .profile .logout {
+    grid-column: col / span 4;
+    grid-row: row 4;
+  }
+  .profile .popup {
+    position: fixed;
+    top: 30%;
+    left: 20%;
+    width: 90%;
+    height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  /* .profile {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 10px;
+    -ms-grid-columns: ([col] auto) [4];
+    grid-template-columns: repeat(4, [col] auto);
+    -ms-grid-rows: ([row] auto) [5];
+    grid-template-rows: repeat(5, [row] auto);
+  } */
+  .profile .profile-hdr {
+    grid-column: col / span 4;
+    grid-row: row;
+  }
+  .profile .user-info {
+    grid-column: col / span 2;
+    grid-row: row 2;
+    width: 800px;
+  }
+  .profile .platforms {
+    grid-column: col 2 / span 2;
+    grid-row: row 2;
+    width: 500px;
+  }
+  .profile .gamelist {
+    grid-column: col 2 / span 2;
+    grid-row: row 3;
+    width: 500px;
+  }
+  .profile .posts {
+    grid-column: col;
+    grid-row: row 3;
+    width: 800px;
+    min-height: 300px;
+  }
+  .profile .logout {
+    grid-column: col / span 4;
+    grid-row: row 5;
+  }
+  .profile .popup {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    width: 90%;
+    height: 50vh;
+  }
+}
+
+/* Lobby */
+.allposts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 15px;
+  padding: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .allposts {
+    margin: 25px;
+    padding: 20px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .allposts {
+    margin: 45px;
+    padding: 40px;
+  }
+}
+
+.allposts .post {
+  background-color: #eeeeee;
+  margin-bottom: 10px;
+  width: 100%;
+  color: black;
+}
+
+.allposts .post h4 {
+  padding: 8px 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .allposts .post h4 {
+    font-size: 25px;
+    padding: 12px 22px;
+  }
+}
+
+.allposts .post h1 {
+  background-color: #c4c4c4;
+  color: #3b6978;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* Games */
+.gamespage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.gamespage .head-search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.gamespage .head-search form input {
+  padding: 12px 40px;
+  font-size: 18px;
+}
+
+.gamespage .gamesList {
+  background-color: #222831;
+  padding: 15px 30px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (min-width: 768px) {
+  .gamespage .gamesList {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .gamespage .gamesList {
+    width: 80%;
+  }
+}
+
+.gamespage .gamesList h3 {
+  font-size: 35px;
+  margin: 10px;
+}
+
+.gamespage .gamesList ul {
+  width: 100%;
+  list-style: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .gamespage .gamesList ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .gamespage .gamesList ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+  }
+}
+
+.gamespage .gamesList ul .a {
+  text-decoration: none;
+}
+
+.gamespage .gamesList ul li {
+  color: #eeeeee;
+  font-size: 30px;
+  margin-bottom: 10px;
+  padding: 12px 40px;
+  border: #c4c4c4 3px solid;
+}
+
+.gamespage .gamesList ul li:hover {
+  color: #f26157;
+  border: #f26157 3px solid;
+}
+
+/* Rooms */
+.rooms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.rooms .insideGameNameRoom {
+  background-color: #222831;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 18px 45px;
+  margin: 20px;
+}
+
+.rooms .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.rooms .links .CreateRoom-link,
+.rooms .links .LeaveGame-link {
+  margin: 15px;
+}
+
+.rooms .links .CreateRoom-link a,
+.rooms .links .LeaveGame-link a {
+  text-decoration: none;
+  color: #eeeeee;
+  font-size: 20px;
+  border: #eeeeee 3px solid;
+  padding: 8px 12px;
+  background-color: #222831;
+}
+
+.rooms .links .CreateRoom-link a:hover,
+.rooms .links .LeaveGame-link a:hover {
+  color: #f26157;
+  border: #f26157 3px solid;
+}
+
+.rooms .roomsList {
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .rooms .roomsList {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto;
+    grid-template-columns: auto auto;
+    -ms-grid-rows: () [auto];
+    grid-template-rows: repeat(auto);
+    grid-gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .rooms .roomsList {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+    grid-template-columns: auto auto auto;
+    -ms-grid-rows: () [auto];
+    grid-template-rows: repeat(auto);
+    grid-gap: 10px;
+  }
+}
+
+.rooms .roomsList .outsideRoom {
+  background-color: #c4c4c4;
+  color: black;
+  padding: 25px;
+  width: 400px;
+  margin: 15px;
+}
+
+.rooms .roomsList .outsideRoom h1 {
+  color: #3b6978;
+  border-bottom: #3b6978 2px solid;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.rooms .roomsList .outsideRoom .desc {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+  grid-template-columns: auto auto;
+  font-size: 20px;
+  grid-gap: 10px;
+  margin: 15px;
+}
+
+.rooms .roomsList .outsideRoom .joinbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: columns;
+  flex-direction: columns;
+  list-style: none;
+  margin: 20px;
+}
+
+.rooms .roomsList .outsideRoom .joinbtn a {
+  background-color: #3b6978;
+  text-decoration: none;
+  color: #c4c4c4;
+  padding: 12px 22px;
+}
+/*# sourceMappingURL=main.css.map */

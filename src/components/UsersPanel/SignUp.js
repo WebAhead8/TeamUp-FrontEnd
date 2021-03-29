@@ -43,10 +43,9 @@ function SignUp() {
     if (signup.pass2 === signup.pass) {
       setWorrning("");
       createUser(signup);
-      alert("Thanks for joining");
       window.location.href = "/login";
     } else {
-      setWorrning("password must match");
+      setWorrning("Passwords Must Match");
     }
   }
   function handelChange(event) {
@@ -62,12 +61,7 @@ function SignUp() {
     <div className="login">
       <header>
         <div className="login-hdr">
-          <img
-            src="../../Assets/signHero.svg"
-            alt=""
-            width="161px"
-            height="128px"
-          />
+          <img src="../../Assets/signHero.svg" alt="" />
           <label> Sign Up</label>
         </div>
       </header>
