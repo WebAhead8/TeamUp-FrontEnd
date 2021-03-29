@@ -10,7 +10,8 @@ function SignUp() {
   );
   const [avatarImgFile, setAvatarImgFile] = React.useState([]);
   const [inputValue, setInputValue] = React.useState("Chosse avatar");
-
+  const [open, setOpen] = React.useState(false);
+  const closeModal = () => setOpen(false);
   const [signup, setSignup] = useState({
     firstname: "",
     lastname: "",
@@ -57,6 +58,7 @@ function SignUp() {
       };
     });
   }
+
   return (
     <div className="login">
       <header>
@@ -132,28 +134,26 @@ function SignUp() {
               required
             />
             <label>choose an avatar</label>
-            <Popup
-              trigger={
-                <input type="button" value={inputValue} name="avatarIcon" />
-              }
-              modal
-              nested
-            >
-              {(close) => (
+            <input
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              value={inputValue}
+              name="avatarIcon"
+            />
+            <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+              {
                 <div className="modal">
-                  <button className="close" onClick={close}>
-                    &times;
-                  </button>
                   <div className="avatar">
                     <Avatar
                       avatarImgFile={avatarImgFile}
                       setAvatarIcon={setAvatarIcon}
                       setInputValue={setInputValue}
                       setSignup={setSignup}
+                      closeModal={closeModal}
                     />
                   </div>
                 </div>
-              )}
+              }
             </Popup>
             <i className="toto">
               Already have an account? <a href="/login"> Login </a>{" "}

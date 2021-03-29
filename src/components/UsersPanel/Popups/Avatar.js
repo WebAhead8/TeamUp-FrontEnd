@@ -10,6 +10,7 @@ function Avatar(props) {
         avatarIcon: event.target.src,
       };
     });
+    props.closeModal();
   };
 
   const listAvatar = props.avatarImgFile.map((img) => (
