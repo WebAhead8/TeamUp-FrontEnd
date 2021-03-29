@@ -22,10 +22,7 @@ function GamerProf() {
   return (
     <div className="userProf">
       <div className="userIcon">
-        <img
-          src="https://i.pinimg.com/originals/0c/5a/27/0c5a271161efe30e61ea8b722a72bf65.jpg"
-          alt="icon"
-        ></img>
+        <img src={gamers.avataricon} alt="icon"></img>
       </div>
       <div className="userInfo">
         <fieldset>

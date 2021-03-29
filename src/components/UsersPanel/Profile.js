@@ -74,7 +74,7 @@ function Profile() {
       <div className="profile-hdr">
         <header>
           <div>
-            <img src={user.avatarIcon} />
+            <img src={user.avataricon} />
           </div>
           <h1>Welcome, {user.username}</h1>
 
