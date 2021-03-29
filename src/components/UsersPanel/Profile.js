@@ -7,7 +7,6 @@ import EditEmail from "./Popups/EditEmail";
 import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
 
-
 function Profile() {
   const [user, setUser] = React.useState({});
   const [games, setGames] = React.useState({});
@@ -27,7 +26,6 @@ function Profile() {
   // Check If there is a user logged in
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
-
     if (token) {
       getUser(token)
         .then((data) => {
@@ -41,8 +39,6 @@ function Profile() {
       window.location.href = "/login";
     }
   }, [user]);
-
-
 
   // Update platforms when check or uncheck a box
   function updatePlatforms(plat) {
@@ -62,22 +58,23 @@ function Profile() {
       });
   }
 
-  function updateGamelist(game) {
-    if (user.gamelist) {
-      if (!user.gamelist.includes(game)) {
-        user.gamelist.push(game);
-      } else {
-        user.gamelist.pop(game);
-      }
-    }
-    const url = "gameslist";
+  // function updateGamelist(game) {
+  //   if (user.gamelist) {
+  //     if (!user.gamelist.includes(game)) {
+  //       user.gamelist.push(game);
+  //     } else {
+  //       user.gamelist.pop(game);
+  //     }
+  //   }
+  //   const url = "gameslist";
 
-    updateUser(url, { id: user.id, gamelist: user.gamelist })
-      .then((data) => console.log("games ", data))
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  //   updateUser(url, { id: user.id, gamelist: user.gamelist })
+  //     .then((data) => console.log("games ", data))
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
   // React.useEffect(() => {
   //   const platforms = ["xbox", "ps", "pc", "mobile"];
   //   if (user.platform) {
@@ -106,7 +103,11 @@ function Profile() {
     <div className="profile">
       <div className="profile-hdr">
         <header>
+          <div>
+            <img src={user.avatarIcon} />
+          </div>
           <h1>Welcome, {user.username}</h1>
+
           <button
             onClick={() => {
               setTrigger(!trigger);
@@ -169,21 +170,18 @@ function Profile() {
         setTriggerPass={setTriggerPass}
         setTrigger={setTrigger}
         userId={user.id}
-
       />
       <EditUsername
         triggerUsername={triggerUsername}
         setTriggerUsername={setTriggerUsername}
         setTrigger={setTrigger}
         userId={user.id}
-
       />
       <DeleteAccount
         triggerDelete={triggerDelete}
         setTriggerDelete={setTriggerDelete}
         setTrigger={setTrigger}
         id={user.id}
-
       />
 
       <fieldset className="user-info">
