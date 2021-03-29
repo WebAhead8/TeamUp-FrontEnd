@@ -6,7 +6,7 @@ function EditPassword(props) {
   const [prepassword, setPrePassword] = React.useState("");
   const [newpassword, setNewPassword] = React.useState("");
   const [noti, setNoti] = React.useState(false);
-  console.log("pass ", props.user.pass);
+
   const savePass = () => {
     if (newpassword === prepassword) {
       const url = "password";

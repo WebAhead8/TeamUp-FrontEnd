@@ -41,6 +41,7 @@ export function createUser(userData) {
 }
 
 export function updateUser(url, userData) {
+  console.log(userData, "userdata");
   return request(`${serverUrl}/update/${url}`, {
     method: "POST",
     body: JSON.stringify(userData),
@@ -53,7 +54,7 @@ export function updateUser(url, userData) {
 }
 
 export function deleteUser(id) {
-  alert("id from fetch ", id)
+  alert("id from fetch ", id);
   return request(`${serverUrl}/users/${id}`, {
     method: "DELETE",
   }).catch((err) => {
