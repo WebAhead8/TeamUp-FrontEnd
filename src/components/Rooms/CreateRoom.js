@@ -28,22 +28,22 @@ function CreateRoom() {
       descr: "",
       lang: " ",
       age: "",
-      skill: [],
+      skill: "",
       platform: "",
     });
   }, [userId]);
 
   function handelChange(event) {
     const { name, value } = event.target;
-    if (name === "skill") {
-      setCreateRoomInfo((prevValue) => {
-        return {
-          ...prevValue,
-          skill: value.split(","),
-        };
-      });
-      return;
-    }
+    // if (name === "skill") {
+    //   setCreateRoomInfo((prevValue) => {
+    //     return {
+    //       ...prevValue,
+    //       skill: value.split(","),
+    //     };
+    //   });
+    //   return;
+    // }
     setCreateRoomInfo((prevValue) => {
       return {
         ...prevValue,

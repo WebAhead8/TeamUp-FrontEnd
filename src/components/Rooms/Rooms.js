@@ -9,7 +9,7 @@ function Rooms() {
   let gname = gnameuncorrect.replace(/%20/g, " ");
 
   const [rooms, setRooms] = React.useState([]);
-
+  console.log(rooms);
   React.useEffect(() => {
     const url = `/grooms/${id}`;
     mainFetch(url).then((data) => {
