@@ -63,7 +63,7 @@ body {
   top: -50px;
 }
 /* Landing Page */
-
+.error,
 .hero {
   margin: 2rem;
   margin-top: 60px;
@@ -109,6 +109,12 @@ body {
           background-color: #c4c4c4;
           color: #3b6978;
         }
+      }
+      h3 {
+        color: #f26157;
+        text-transform: uppercase;
+        margin: 10px 20px;
+        font-size: 45px;
       }
     }
   }
@@ -307,14 +313,35 @@ footer {
   .profile-hdr {
     margin: 20px;
     header {
+      width: 400px;
       * {
         margin-left: 2px;
       }
-      @include centerFlex(rows);
+      /* @include centerFlex(rows); */
+      display: grid;
+      grid-gap: 10px;
+
+      grid-template-columns: repeat(2, [col] auto);
+      grid-template-rows: repeat(2, [row] auto);
+      h1 {
+        grid-column: col;
+        grid-row: row 2;
+      }
       button {
         background: transparent;
         border: none;
         cursor: pointer;
+        grid-column: col 2;
+        grid-row: row 2;
+      }
+      .avatar {
+        text-align: center;
+        grid-column: col / span 2;
+        grid-row: row;
+        img {
+          width: 100px;
+          border-radius: 50%;
+        }
       }
     }
   }

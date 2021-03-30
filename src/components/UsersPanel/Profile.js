@@ -8,6 +8,7 @@ import EditEmail from "./Popups/EditEmail";
 import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
 import Notification from "../Notification";
+import Error404 from "../../pages/Error404";
 
 function Profile() {
   // States
@@ -45,6 +46,7 @@ function Profile() {
           );
         })
         .catch((error) => {
+          <Error404 />;
           console.log(error);
         });
     } else {
@@ -119,7 +121,7 @@ function Profile() {
       </Notification>
       <div className="profile-hdr">
         <header>
-          <div>
+          <div className="avatar">
             <img src={user.avataricon} />
           </div>
           <h1>Welcome, {user.username}</h1>
