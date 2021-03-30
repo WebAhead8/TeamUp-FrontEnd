@@ -30,13 +30,16 @@ function Login() {
       });
 
     if (loginData.email && loginData.pass) {
-      login(loginData).then((data) => {
-        console.log("logged as ", data);
-        localStorage.setItem("access_token", data.access_token);
-        localStorage.setItem("username", data.user);
-        setUser(data);
-        setIsLoggedIn(true);
-      });
+      login(loginData)
+        .then((data) => {
+          localStorage.setItem("access_token", data.access_token);
+          localStorage.setItem("username", data.user);
+          setUser(data);
+          setIsLoggedIn(true);
+        })
+        .catch((err) => {
+          setWorrning("Email or Password are not correct");
+        });
     } else {
       setWorrning("Empty fields are not allowed");
     }
@@ -44,8 +47,6 @@ function Login() {
 
   useEffect(() => {
     const token = window.localStorage.getItem("access_token");
-
-    console.log("token ", token);
     if (token) {
       getUser(token)
         .then((data) => {

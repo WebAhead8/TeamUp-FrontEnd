@@ -20,7 +20,6 @@ function request(url, options) {
 }
 
 export function login(loginData) {
-  console.log(serverUrl);
   return request(`${serverUrl}/login`, {
     method: "POST",
     body: JSON.stringify(loginData),
@@ -53,7 +52,6 @@ export function updateUser(url, userData) {
 }
 
 export function deleteUser(id) {
-  alert("id from fetch ", id);
   return request(`${serverUrl}/users/${id}`, {
     method: "DELETE",
   }).catch((err) => {

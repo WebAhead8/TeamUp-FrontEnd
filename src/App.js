@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style/main.css";
 import Rooms from "./components/Rooms/Rooms";
 import InsideRoom from "./components/Rooms/InsideRoom";
@@ -7,9 +8,9 @@ import Login from "./components/UsersPanel/Login";
 import SignUp from "./components/UsersPanel/SignUp";
 import Lobby from "./components/Lobby/Lobby";
 import Profile from "./components/UsersPanel/Profile";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
+import Support from "./pages/Support";
 import Error404 from "./pages/Error404";
 import Logo from "./components/Logo";
 import Gamers from "./components/UsersPanel/Gamers";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={SignUp} />
           <Route path="/error" exact component={Error404} />
+          <Route path="/support" exact component={Support} />
         </Switch>
         <Footer />
       </Router>

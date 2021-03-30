@@ -14,9 +14,14 @@ function GamerProf() {
 
   React.useEffect(() => {
     const url = `/users/${id}`;
-    mainFetch(url).then((data) => {
-      setGamers(data);
-    });
+    mainFetch(url)
+      .then((data) => {
+        setGamers(data);
+      })
+      .catch((err) => {
+        console.log(err);
+        window.location.href = "/error";
+      });
   }, []);
 
   return (
@@ -31,9 +36,24 @@ function GamerProf() {
           <h4>Last Name: {gamers.lastname}</h4>
           <h4>Username: {gamers.username}</h4>
           <h4>E-Mail: {gamers.email}</h4>
-          <ul>Games List: </ul>
-          <ul>Platform: </ul>
+          <ul>
+            <i>Games List:</i>
+            {gamers.gamelist
+              ? gamers.gamelist.map((game) => <li id={game.id}>{game}</li>)
+              : ""}
+          </ul>
+          <ul>
+            <i> Platform:</i>
+            {gamers.platform
+              ? gamers.platform.map((plat) => <li id={plat.id}>{plat}</li>)
+              : ""}
+          </ul>
         </fieldset>
+        <div className="back">
+          <a href="./gamers" className="backbtn">
+            Back
+          </a>
+        </div>
       </div>
     </div>
   );

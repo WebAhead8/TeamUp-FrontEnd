@@ -59,7 +59,7 @@ function CreateRoom() {
   };
 
   return (
-    <div className="login-form">
+    <div className="create-room">
       <h1>Create your own room on your own rules!</h1>
       <div className="container">
         <form className="form" onSubmit={onSubmit}>
@@ -140,6 +140,9 @@ function CreateRoom() {
           </label>
           <br />
           <button type="submit">Create</button>
+          <button onClick={() => (window.location.href = "/games")}>
+            Cancel
+          </button>
         </form>
       </div>
     </div>
