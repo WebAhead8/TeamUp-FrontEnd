@@ -1,3 +1,4 @@
+import Error404 from "../pages/Error404";
 require("dotenv").config();
 let serverUrl;
 
@@ -11,6 +12,7 @@ function request(url, options) {
   return fetch(url, options).then((response) => {
     if (!response.ok) {
       const error = new Error("HTTP Error");
+      <Error404 />;
       error.status = response.status;
       throw error;
     } else {
@@ -28,5 +30,6 @@ export function createRoom(roomData) {
     },
   }).catch((err) => {
     throw new Error(`fetch getData failed ${err}`);
+    <Error404 />;
   });
 }

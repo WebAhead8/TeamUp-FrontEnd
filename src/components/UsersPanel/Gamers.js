@@ -14,24 +14,30 @@ function Gamers() {
   }, []);
 
   const Gamers = ({ id, username, gamelist }) => (
-    <div>
-      <Link
-        to={{
-          pathname: "/users",
-          search: `id=${id}`,
-        }}
-      >
-        {username}
-      </Link>
-      {gamelist}
+    <div className="gamers">
+      <div className="container">
+        <Link
+          className="a"
+          to={{
+            pathname: "/users",
+            search: `id=${id}`,
+          }}
+        >
+          <h1> {username}</h1>
+        </Link>
+        <i> Fav Games : {gamelist}</i>
+      </div>
     </div>
   );
 
   return (
-    <div>
-      {gamers.map((p, i) => (
-        <Gamers {...p} key={i} />
-      ))}
+    <div className="gamers-cont">
+      <h3>Find Gamers With The Same GameList As Yours</h3>
+      <div className="gamers-grid">
+        {gamers.map((p, i) => (
+          <Gamers {...p} key={i} />
+        ))}
+      </div>
     </div>
   );
 }
