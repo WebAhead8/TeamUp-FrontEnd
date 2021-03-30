@@ -17,35 +17,46 @@ function InsideRoom() {
   }, []);
 
   return (
-    <>
+    <div className="insideroom">
       {room.map((room) => (
-        <div className="insideroom">
+        <div className="insideroomm">
           <h2>{room.rname}</h2>
-          <div>
-            <Link
-              to={{
-                pathname: "/rooms",
-                search: `id=${id}=gname=${game}`,
-              }}
-            >
-              Leave Room
-            </Link>
-          </div>
+
+          <Link
+            className="a"
+            to={{
+              pathname: "/rooms",
+              search: `id=${id}=gname=${game}`,
+            }}
+          >
+            Leave Room
+          </Link>
+
           <div className="roomdesc">
-            <p>{room.descr}</p>
-            <p>{room.land}</p>
-            <p>{room.age}</p>
-            <p>{room.skill}</p>
-            <p>{room.platform}</p>
+            <div className="rules-hdr">
+              <h4>Room Rules : </h4>
+              <p>{room.descr}</p>
+            </div>
+
+            <div className="rules">
+              <h4>Standards :</h4>
+              <p>Language : {room.lang}</p>
+              <p>Age : {room.age}</p>
+              <p>Console : {room.platform}</p>
+              <p>Skills : {room.skill}</p>
+            </div>
           </div>
           <div className="players">
             <ul>
-              <li>{room.gamers}</li>
+              <h1> Gamers Joined The Room :</h1>
+              {room.gamers
+                ? room.gamers.map((plat) => <li id={plat.id}>{plat}</li>)
+                : ""}
             </ul>
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 export default InsideRoom;
