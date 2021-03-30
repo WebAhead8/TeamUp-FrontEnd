@@ -41,7 +41,6 @@ export function createUser(userData) {
 }
 
 export function updateUser(url, userData) {
-  console.log(userData, "userdata");
   return request(`${serverUrl}/update/${url}`, {
     method: "POST",
     body: JSON.stringify(userData),

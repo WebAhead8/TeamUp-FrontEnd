@@ -6,6 +6,7 @@ function UsersPost({ user }) {
   const [posts, setPosts] = React.useState({});
 
   React.useEffect(() => {
+    console.log("checking");
     mainFetch(`/posts/${user.id}`)
       .then((data) => {
         if (data.length) {
@@ -18,6 +19,7 @@ function UsersPost({ user }) {
         console.log(err);
       });
   }, [user]);
+
   return posts.length ? (
     <ul>
       {posts.map((post) => (

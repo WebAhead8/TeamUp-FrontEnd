@@ -10,6 +10,7 @@ import Profile from "./components/UsersPanel/Profile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
+import Error404 from "./pages/Error404";
 import Logo from "./components/Logo";
 import Gamers from "./components/UsersPanel/Gamers";
 import Footer from "./components/Footer";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" exact component={LandingPage} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={SignUp} />
+          <Route path="/error" exact component={Error404} />
         </Switch>
         <Footer />
       </Router>
