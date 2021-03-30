@@ -8,10 +8,13 @@ import EditEmail from "./Popups/EditEmail";
 import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
 import Notification from "../Notification";
+import Plateform from "../Platform";
 
 function Profile() {
   // States
+
   const [user, setUser] = React.useState({});
+
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [trigger, setTrigger] = React.useState(false);
   const [noti, setNoti] = React.useState(false);
@@ -20,12 +23,13 @@ function Profile() {
   const [triggerUsername, setTriggerUsername] = React.useState(false);
   const [triggerDelete, setTriggerDelete] = React.useState(false);
 
-  const [platform, setPlatform] = React.useState([
-    { id: "xbox", checked: false, src: "../../Assets/xbox.svg" },
-    { id: "ps", checked: false, src: "../../Assets/playstation.svg" },
-    { id: "pc", checked: false, src: "../../Assets/pc.svg" },
-    { id: "mobile", checked: false, src: "../../Assets/mobile.svg" },
-  ]);
+  // let ptf = platform.reduce((acc, { id, checked }) => {
+  //   if (checked) {
+  //     acc.push(id);
+  //   }
+  //   return acc;
+  // }, []);
+  // console.log(ptf);
 
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
@@ -34,15 +38,6 @@ function Profile() {
         .then((data) => {
           setUser(data);
           setIsLoggedIn(true);
-          setPlatform(
-            platform.map((platf) => {
-              if (data.platform.includes(platf.id)) {
-                return { ...platf, checked: true };
-              } else {
-                return platf;
-              }
-            })
-          );
         })
         .catch((error) => {
           console.log(error);
@@ -51,56 +46,6 @@ function Profile() {
       setNoti(true);
     }
   }, []);
-
-  // Check If there is a user logged in
-  // React.useEffect(() => {
-  //   const token = window.localStorage.getItem("access_token");
-  //   if (token) {
-  //     getUser(token)
-  //       .then((data) => {
-  //         setUser(data);
-  //         setIsLoggedIn(true);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   } else {
-  //     setNoti(true);
-  //   }
-  // }, [platform]);
-
-  // Update platforms when check or uncheck a box
-
-  function updatePlatforms(plat) {
-    setPlatform(
-      platform.map((pt) => {
-        if (pt.id === plat) {
-          return {
-            ...pt,
-            checked: !pt.checked,
-          };
-        }
-        return pt;
-      })
-    );
-
-    let ptf = platform.reduce((acc, { id, checked }) => {
-      if (checked) {
-        acc.push(id);
-      }
-      return acc;
-    }, []);
-
-    const url = "platforms";
-    updateUser(url, {
-      id: user.id,
-      platform: ptf,
-    })
-      .then((data) => console.log("platform ", data))
-      .catch((error) => {
-        console.log(error);
-      });
-  }
 
   // Logout Function
   const logout = () => {
@@ -137,7 +82,6 @@ function Profile() {
           </button>
         </header>
       </div>
-
       <Edit trigger={trigger} setTrigger={setTrigger}>
         <h1>Edit Your Info</h1>
         <a
@@ -174,7 +118,6 @@ function Profile() {
           Delete Your Account
         </a>
       </Edit>
-
       <EditEmail
         triggerEmail={triggerEmail}
         setTriggerEmail={setTriggerEmail}
@@ -199,7 +142,6 @@ function Profile() {
         setTrigger={setTrigger}
         id={user.id}
       />
-
       <fieldset className="user-info">
         <legend>User Info</legend>
         <i>First Name: {user.firstname}</i>
@@ -208,29 +150,33 @@ function Profile() {
         <i>E-Mail: {user.email}</i>
       </fieldset>
 
-      <fieldset className="platforms">
-        <legend>platforms</legend>
-        <div className="container">
-          {/* Playstation */}
-          {platform.map((plat) => (
-            <label>
-              <img src={plat.src} />
-              <input
-                type="checkbox"
-                name="platforms"
-                value={plat.id}
-                checked={plat.checked}
-                onClick={(e) => updatePlatforms(e.target.value)}
-              ></input>
-            </label>
-          ))}
-        </div>
+      {/*flatfoooorms */}
+      <fieldset className="gamelist">
+        <label>
+          Add New Platforms: <br />
+          <Plateform user={user} setUser={setUser} />
+        </label>
+        <legend> Platforms</legend>
+        {user.platform ? (
+          <ul>
+            {user.platform.map((plat) => (
+              <li className="gameName" key={plat}>
+                <img src={`../../Assets/${plat}.svg`} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          ""
+        )}
       </fieldset>
+
+      {/* gameeeesList*/}
       <fieldset className="gamelist">
         <label>
           Add New Game : <br />
-          <DataList user={user} />
+          <DataList user={user} setUser={setUser} />
         </label>
+
         {/* <input type="button" value="Add" className="add-game" /> */}
         <legend> Games List</legend>
         {user.gamelist ? (
@@ -245,7 +191,6 @@ function Profile() {
           ""
         )}
       </fieldset>
-
       <fieldset className="posts">
         <legend>My Posts :</legend>
 
