@@ -1,49 +1,40 @@
 import React from "react";
-import mainFetch from "../utils/mainFetch";
+
 import { updateUser } from "../utils/fetchUsers";
 
-function DataList({ user, setUser }) {
-  const [games, setGames] = React.useState({});
-  const [selectedIndex, setSelectedIndex] = React.useState("Pubg");
+function Plateform({ user, setUser }) {
+  const Plateform = ["ps", "xbox", "pc", "mobile"];
+  const [selectIndex, setSelectIndex] = React.useState("Pubg");
   const [userAfter, setUserAfter] = React.useState({});
 
   React.useEffect(() => {
     setUser(userAfter);
   }, [userAfter]);
 
-  const addGame = () => {
-    if (user.gamelist) {
-      if (!user.gamelist.includes(selectedIndex)) {
-        user.gamelist.push(selectedIndex);
+  const addplatform = () => {
+    if (user.platform) {
+      if (!user.platform.includes(selectIndex)) {
+        user.platform.push(selectIndex);
       }
     }
-    const url = "gameslist";
+    const url = "platforms";
 
-    updateUser(url, { id: user.id, gamelist: user.gamelist })
+    updateUser(url, { id: user.id, platform: user.platform })
       .then((data) => setUserAfter(data))
       .catch((error) => {
         console.log(error);
       });
   };
   const handleChange = (e) => {
-    setSelectedIndex(e.target.value);
+    setSelectIndex(e.target.value);
   };
-  React.useEffect(() => {
-    mainFetch("/games")
-      .then((data) => {
-        setGames(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
   return (
     <div className="gamedatalist">
-      {games.length ? (
+      {Plateform.length ? (
         <select onChange={(e) => handleChange(e)}>
-          {games.map((game) => (
-            <option className="gameName" key={game.id} value={game.gname}>
-              {game.gname}
+          {Plateform.map((plat) => (
+            <option className="gameName" key={plat} value={plat}>
+              {plat}
             </option>
           ))}
         </select>
@@ -53,7 +44,7 @@ function DataList({ user, setUser }) {
       <button
         className="add-game"
         onClick={() => {
-          addGame();
+          addplatform();
         }}
       >
         <svg
@@ -77,4 +68,4 @@ function DataList({ user, setUser }) {
   );
 }
 
-export default DataList;
+export default Plateform;
