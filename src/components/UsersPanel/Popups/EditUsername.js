@@ -11,6 +11,7 @@ function EditUsername(props) {
         console.log("Changed Successfully");
         props.setTriggerUsername(false);
         props.setTrigger(false);
+        window.localStorage.setItem("username", newUsername);
         window.location.href = "/profile";
       })
       .catch((error) => {
