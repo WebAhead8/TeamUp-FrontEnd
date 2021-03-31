@@ -113,9 +113,8 @@ span {
 .blur {
   position: fixed;
   top: 0;
-  width: 100%;
-  min-height: 50px;
-  margin-bottom: 20px;
+  width: 9%;
+  min-height: 70px;
   background: rgba(0, 0, 0, 0.4);
   z-index: 1010;
   -webkit-filter: blur(20px);
