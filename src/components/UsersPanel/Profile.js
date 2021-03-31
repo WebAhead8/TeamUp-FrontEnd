@@ -10,12 +10,35 @@ import EditUsername from "./Popups/EditUsername";
 import Notification from "../Notification";
 import Plateform from "../Platform";
 import Error404 from "../../pages/Error404";
+import EditAvatarImg from "./Popups/EditAvatarImg";
 
 function Profile() {
   // States
+  React.useEffect(() => {
+    const token = window.localStorage.getItem("access_token");
+    getUser(token)
+      .then((data) => {
+        setUser(data);
+        setIsLoggedIn(true);
+      })
+      .catch((error) => {
+        <Error404 />;
+        console.log(error);
+      });
+  }, []);
 
   const [user, setUser] = React.useState({});
-
+  const [newUser, setNewUser] = React.useState({
+    id: user.id,
+    firstname: "",
+    lastname: "",
+    username: "",
+    email: "",
+    pass: "",
+    platform: "",
+    gamelist: "",
+    avataricon: "",
+  });
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [trigger, setTrigger] = React.useState(false);
   const [noti, setNoti] = React.useState(false);
@@ -23,14 +46,7 @@ function Profile() {
   const [triggerPass, setTriggerPass] = React.useState(false);
   const [triggerUsername, setTriggerUsername] = React.useState(false);
   const [triggerDelete, setTriggerDelete] = React.useState(false);
-
-  // let ptf = platform.reduce((acc, { id, checked }) => {
-  //   if (checked) {
-  //     acc.push(id);
-  //   }
-  //   return acc;
-  // }, []);
-  // console.log(ptf);
+  const [triggerAvatar, setTriggerAvatar] = React.useState(false);
 
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
@@ -47,7 +63,7 @@ function Profile() {
     } else {
       setNoti(true);
     }
-  }, []);
+  }, [newUser]);
 
   // Logout Function
   const logout = () => {
@@ -58,6 +74,11 @@ function Profile() {
     setIsLoggedIn(false);
     window.location.href = "/";
   };
+
+  function onChangeAvatar(avatarSrc) {
+    setNewUser({ avataricon: avatarSrc });
+    window.location.href = "/profile";
+  }
 
   return (
     <div className="profile">
@@ -78,6 +99,7 @@ function Profile() {
               setTriggerEmail(false);
               setTriggerPass(false);
               setTriggerDelete(false);
+              setTriggerAvatar(false);
             }}
           >
             <img src="../../Assets/EditBtn.svg" alt="" />
@@ -111,6 +133,14 @@ function Profile() {
           Edit Your Username
         </a>
         <a
+          onClick={() => {
+            setTriggerAvatar(true);
+            setTrigger(false);
+          }}
+        >
+          Edit Your Avatar Img
+        </a>
+        <a
           className="del-account"
           onClick={() => {
             setTriggerDelete(true);
@@ -137,6 +167,15 @@ function Profile() {
         setTriggerUsername={setTriggerUsername}
         setTrigger={setTrigger}
         userId={user.id}
+        user={user}
+      />
+      <EditAvatarImg
+        triggerAvatar={triggerAvatar}
+        setTriggerAvatar={setTriggerAvatar}
+        setTrigger={setTrigger}
+        userId={user.id}
+        setNewAvatar={setNewUser.avataricon}
+        onChange={onChangeAvatar}
       />
       <DeleteAccount
         triggerDelete={triggerDelete}
