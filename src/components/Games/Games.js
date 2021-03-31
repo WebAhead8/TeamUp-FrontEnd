@@ -13,9 +13,11 @@ function Games() {
 
   React.useEffect(() => {
     const url = `/games/${gameName}`;
-    mainFetch(url).then((data) => {
-      setGamesList(data);
-    });
+    mainFetch(url)
+      .then((data) => {
+        setGamesList(data);
+      })
+      .catch((err) => (window.location.href = "/error"));
   }, [gameName]);
 
   return (
@@ -42,7 +44,7 @@ function Games() {
               className="a"
               to={{
                 pathname: "/rooms",
-                search: `id=${game.id}=gname=${game.gname}`,
+                search: `gameid=${game.id}=gname=${game.gname}`,
               }}
             >
               <li className="gameName" key={game.id}>

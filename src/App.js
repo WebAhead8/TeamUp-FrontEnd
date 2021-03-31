@@ -21,31 +21,29 @@ import Nav from "./components/NavBar/Navbar";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Nav />
-        <div className="menu-logo-hdr">
-          <Logo />
-        </div>
-        <Switch>
-          <Route path="/home" exact component={Home} />
-          <Route path="/games/" exact component={Games} />
-          <Route path="/rooms" component={Rooms} />
-          <Route path="/insideRoom" exact component={InsideRoom} />
-          <Route path="/createRoom" exact component={CreacteRoom} />
-          <Route path="/profile" exact component={Profile} />
-          <Route path="/lobby" exact component={Lobby} />
-          <Route path="/gamers" exact component={Gamers} />
-          <Route path="/users" component={GamerProf} />
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={SignUp} />
-          <Route path="/error" exact component={Error404} />
-          <Route path="/support" exact component={Support} />
-        </Switch>
-        <Footer />
-      </Router>
-    </>
+    <Router>
+      <Nav />
+      <div className="menu-logo-hdr">
+        <Logo />
+      </div>
+      <Switch>
+        <Route path="/home" exact component={Home} />
+        <Route path="/games/" exact component={Games} />
+        <Route path="/rooms" component={Rooms} />
+        <Route path="/insideRoom" exact component={InsideRoom} />
+        <Route path="/createRoom" exact component={CreacteRoom} />
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/lobby" exact component={Lobby} />
+        <Route path="/gamers" exact component={Gamers} />
+        <Route path="/users" component={GamerProf} />
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/signup" exact component={SignUp} />
+        <Route path="/error" exact component={Error404} />
+        <Route path="/support" exact component={Support} />
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import LoadingPage from "./LoadingPage";
 
 function Home() {
   return (

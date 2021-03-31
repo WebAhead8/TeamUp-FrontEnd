@@ -33,3 +33,12 @@ export function createRoom(roomData) {
     <Error404 />;
   });
 }
+
+export function DelRoom(id) {
+  return request(`${serverUrl}/rooms/${id}`, {
+    method: "DELETE",
+  }).catch((err) => {
+    throw new Error(`fetch getData failed ${err}`);
+    <Error404 />;
+  });
+}

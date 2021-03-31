@@ -17,18 +17,18 @@ function Avatar(props) {
     <li>
       <img
         src={img.avatarsrc}
-        alt="avatarIcon"
+        alt={img.avatarname}
         name={img.avatarname}
         value={img.avatarsrc}
         id={img.id}
-        width="50"
-        height="50"
+        width="70px"
+        height="70px"
         onClick={setIcone}
-      ></img>
+      />
     </li>
   ));
 
-  return <ul>{listAvatar}</ul>;
+  return <ul className="avatar-pop">{listAvatar}</ul>;
 }
 
 export default Avatar;

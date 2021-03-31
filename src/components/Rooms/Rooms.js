@@ -12,9 +12,11 @@ function Rooms() {
   console.log(rooms);
   React.useEffect(() => {
     const url = `/grooms/${id}`;
-    mainFetch(url).then((data) => {
-      setRooms(data);
-    });
+    mainFetch(url)
+      .then((data) => {
+        setRooms(data);
+      })
+      .catch((err) => (window.location.href = "/error"));
   }, []);
 
   return (
@@ -56,7 +58,7 @@ function Rooms() {
                   <Link
                     to={{
                       pathname: "/insideRoom",
-                      search: `id=${id}=${gname}`,
+                      search: `roomid=${room.id}=${gname}=${id}`,
                     }}
                   >
                     JOIN

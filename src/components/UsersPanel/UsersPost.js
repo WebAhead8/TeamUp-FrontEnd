@@ -15,9 +15,7 @@ function UsersPost({ user }) {
           setPosts({});
         }
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => (window.location.href = "/error"));
   }, []);
 
   return posts.length ? (

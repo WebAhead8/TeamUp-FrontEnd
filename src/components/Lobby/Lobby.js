@@ -5,9 +5,11 @@ function Lobby() {
   const [posts, setPosts] = React.useState([]);
   React.useEffect(() => {
     const url = "/AllPosts";
-    mainFetch(url).then((data) => {
-      setPosts(data);
-    });
+    mainFetch(url)
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => (window.location.href = "/error"));
   }, []);
   console.log(posts);
   return posts ? (
