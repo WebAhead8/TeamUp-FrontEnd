@@ -1,5 +1,5 @@
 import React from "react";
-
+import LoadingPage from "../pages/LoadingPage";
 function Notification(props) {
   return props.noti ? (
     <div className="popup">
@@ -51,7 +51,7 @@ function Notification(props) {
       </div>
     </div>
   ) : (
-    ""
+    <LoadingPage />
   );
 }
 

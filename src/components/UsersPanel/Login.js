@@ -50,7 +50,6 @@ function Login() {
     if (token) {
       getUser(token)
         .then((data) => {
-          console.log("Logged Again : ", data);
           setUser(data);
           setIsLoggedIn(true);
         })

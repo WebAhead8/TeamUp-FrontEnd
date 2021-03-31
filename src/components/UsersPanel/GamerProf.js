@@ -10,7 +10,6 @@ function useQuery() {
 function GamerProf() {
   let query = useQuery();
   let id = query.get("id");
-
   const [gamers, setGamers] = React.useState([]);
 
   React.useEffect(() => {
@@ -24,6 +23,7 @@ function GamerProf() {
         window.location.href = "/error";
       });
   }, []);
+
   return gamers ? (
     <div className="userProf">
       <div className="userIcon">

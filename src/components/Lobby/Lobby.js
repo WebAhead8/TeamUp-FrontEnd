@@ -11,7 +11,7 @@ function Lobby() {
       })
       .catch((err) => (window.location.href = "/error"));
   }, []);
-  console.log(posts);
+
   return posts ? (
     <div className="allposts">
       {posts.map((post) => (
