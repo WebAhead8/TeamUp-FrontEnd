@@ -34,7 +34,6 @@ function InsideRoom() {
     const url = `/user/${loggedInUser}`;
     mainFetch(url)
       .then((data) => {
-        console.log("user id ", loggedInUser);
         if (data) {
           if (host === data.id) {
             setIsHost(true);

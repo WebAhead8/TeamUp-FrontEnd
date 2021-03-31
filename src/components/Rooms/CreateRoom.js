@@ -4,11 +4,9 @@ import { createRoom } from "../../utils/fetchRooms";
 
 function CreateRoom() {
   const [userId, setUserId] = React.useState();
-
   const username = window.sessionStorage.getItem("username");
   const ganmeid = window.location.href.split("=")[1];
   const gameName = window.location.href.split("=")[2];
-
   const [createRoomInfo, setCreateRoomInfo] = React.useState(null);
 
   React.useEffect(() => {

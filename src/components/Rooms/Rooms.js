@@ -5,11 +5,9 @@ import { Link } from "react-router-dom";
 function Rooms() {
   let id = window.location.href.split("=")[1];
   let gnameuncorrect = window.location.href.split("=")[3];
-
   let gname = gnameuncorrect.replace(/%20/g, " ");
 
   const [rooms, setRooms] = React.useState([]);
-  console.log(rooms);
   React.useEffect(() => {
     const url = `/grooms/${id}`;
     mainFetch(url)
@@ -19,7 +17,7 @@ function Rooms() {
       .catch((err) => (window.location.href = "/error"));
   }, []);
 
-  return (
+  return rooms ? (
     <div className="rooms">
       <h1 className="insideGameNameRoom">{gname} ROOMS </h1>
       <div className="links">
@@ -36,7 +34,13 @@ function Rooms() {
             Leave Game
           </Link>
         </div>
+        <br />
       </div>
+      {!rooms.length ? (
+        <h1>There is no rooms for this game. Create one!</h1>
+      ) : (
+        ""
+      )}
       <ul className="roomsList">
         {rooms.map((room) => (
           <div className="outsideRoom">
@@ -70,6 +74,8 @@ function Rooms() {
         ))}
       </ul>
     </div>
+  ) : (
+    <h1>There is no rooms for this game. Create one!</h1>
   );
 }
 

@@ -1,9 +1,9 @@
 import mainFetch from "../../utils/mainFetch";
 import React from "react";
-
 import { Link } from "react-router-dom";
 
 function Games() {
+  // States
   const [gameName, setGameName] = React.useState("");
   const [gamesList, setGamesList] = React.useState([]);
 

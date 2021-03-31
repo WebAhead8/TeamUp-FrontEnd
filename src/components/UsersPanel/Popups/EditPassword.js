@@ -12,7 +12,6 @@ function EditPassword(props) {
       const url = "password";
       updateUser(url, { id: props.user.id, pass: newpassword })
         .then(() => {
-          console.log("Changed Successfully");
           props.setTriggerPass(false);
           props.setTrigger(false);
           window.location.href = "/profile";

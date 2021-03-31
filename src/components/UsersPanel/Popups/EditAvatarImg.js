@@ -20,7 +20,6 @@ function EditAvatarImg(props) {
     const url = "avatarimg";
     updateUser(url, { id: props.userId, avatarIcon: newAvatarImg })
       .then(() => {
-        console.log("Changed Successfully");
         props.setTriggerAvatar(false);
         props.setTrigger(false);
         props.onChange(newAvatarImg);

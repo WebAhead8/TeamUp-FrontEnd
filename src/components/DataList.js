@@ -1,6 +1,7 @@
 import React from "react";
 import mainFetch from "../utils/mainFetch";
 import { updateUser } from "../utils/fetchUsers";
+import LoadingPage from "../pages/LoadingPage";
 
 function DataList({ user, setUser }) {
   const [games, setGames] = React.useState({});
@@ -37,7 +38,7 @@ function DataList({ user, setUser }) {
         console.log(err);
       });
   }, []);
-  return (
+  return games ? (
     <div className="gamedatalist">
       {games.length ? (
         <select onChange={(e) => handleChange(e)}>
@@ -74,6 +75,8 @@ function DataList({ user, setUser }) {
         </svg>
       </button>
     </div>
+  ) : (
+    <LoadingPage />
   );
 }
 

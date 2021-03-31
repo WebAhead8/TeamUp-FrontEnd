@@ -12,7 +12,6 @@ function EditEmail(props) {
     if (preEmail === props.user.email) {
       updateUser(url, { id: props.user.id, email: newEmail })
         .then((data) => {
-          console.log("Changed Successfully");
           props.setTriggerEmail(false);
           props.setTrigger(false);
           window.location.href = "/profile";

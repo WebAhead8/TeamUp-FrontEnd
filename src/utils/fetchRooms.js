@@ -12,7 +12,7 @@ function request(url, options) {
   return fetch(url, options).then((response) => {
     if (!response.ok) {
       const error = new Error("HTTP Error");
-      <Error404 />;
+      window.location.href = "/error";
       error.status = response.status;
       throw error;
     } else {
@@ -29,8 +29,8 @@ export function createRoom(roomData) {
       "Content-type": "application/json",
     },
   }).catch((err) => {
+    window.location.href = "/error";
     throw new Error(`fetch getData failed ${err}`);
-    <Error404 />;
   });
 }
 
@@ -38,7 +38,7 @@ export function DelRoom(id) {
   return request(`${serverUrl}/rooms/${id}`, {
     method: "DELETE",
   }).catch((err) => {
+    window.location.href = "/error";
     throw new Error(`fetch getData failed ${err}`);
-    <Error404 />;
   });
 }

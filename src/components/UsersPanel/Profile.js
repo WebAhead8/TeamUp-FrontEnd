@@ -259,14 +259,13 @@ function Profile() {
         )}
       </fieldset>
 
-      {/* gameeeesList*/}
+      {/* GamesList*/}
       <fieldset className="gamelist">
         <label>
           Add New Game : <br />
           <DataList user={user} setUser={setUser} />
         </label>
 
-        {/* <input type="button" value="Add" className="add-game" /> */}
         <legend> Games List</legend>
         {user.gamelist ? (
           <ul>
@@ -306,7 +305,7 @@ function Profile() {
         <UsersPost user={user} />
       </fieldset>
       <button onClick={logout} className="logout">
-        logout
+        Logout
       </button>
     </div>
   ) : (
