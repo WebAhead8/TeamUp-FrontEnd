@@ -30,7 +30,7 @@ function SignUp() {
 	}, []);
 
 	useEffect(() => {
-		const token = window.localStorage.getItem('access_token');
+		const token = window.sessionStorage.getItem('access_token');
 
 		if (token) {
 			window.location.href = '/profile';

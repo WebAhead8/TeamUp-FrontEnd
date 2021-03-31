@@ -15,7 +15,7 @@ import EditAvatarImg from './Popups/EditAvatarImg';
 function Profile() {
 	// States
 	React.useEffect(() => {
-		const token = window.localStorage.getItem('access_token');
+		const token = window.sessionStorage.getItem('access_token');
 		getUser(token)
 			.then((data) => {
 				setUser(data);
@@ -49,7 +49,7 @@ function Profile() {
 
 	React.useEffect(
 		() => {
-			const token = window.localStorage.getItem('access_token');
+			const token = window.sessionStorage.getItem('access_token');
 			if (token) {
 				getUser(token)
 					.then((data) => {
@@ -68,8 +68,8 @@ function Profile() {
 
 	// Logout Function
 	const logout = () => {
-		localStorage.removeItem('access_token');
-		localStorage.removeItem('username');
+		sessionStorage.removeItem('access_token');
+		sessionStorage.removeItem('username');
 
 		setUser({});
 		setIsLoggedIn(false);
