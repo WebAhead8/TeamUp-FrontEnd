@@ -18,7 +18,7 @@ function UsersPost({ user }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [user]);
+  }, []);
 
   return posts.length ? (
     <ul>
