@@ -4,7 +4,7 @@ import { updateUser } from "../utils/fetchUsers";
 
 function Plateform({ user, setUser }) {
   const Plateform = ["ps", "xbox", "pc", "mobile"];
-  const [selectIndex, setSelectIndex] = React.useState("Pubg");
+  const [selectIndex, setSelectIndex] = React.useState("ps");
   const [userAfter, setUserAfter] = React.useState({});
 
   React.useEffect(() => {

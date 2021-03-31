@@ -22,7 +22,6 @@ function Profile() {
         setIsLoggedIn(true);
       })
       .catch((error) => {
-        <Error404 />;
         console.log(error);
       });
   }, []);
@@ -57,7 +56,6 @@ function Profile() {
           setIsLoggedIn(true);
         })
         .catch((error) => {
-          <Error404 />;
           console.log(error);
         });
     } else {
@@ -192,7 +190,7 @@ function Profile() {
       </fieldset>
 
       {/*flatfoooorms */}
-      <fieldset className="gamelist">
+      <fieldset className="platforms">
         <label>
           Add New Platforms: <br />
           <Plateform user={user} setUser={setUser} />
