@@ -13,10 +13,9 @@ import Error404 from "../../pages/Error404";
 import EditAvatarImg from "./Popups/EditAvatarImg";
 
 function Profile() {
-  const [user, setUser] = React.useState({});
   // States
   React.useEffect(() => {
-    const token = window.localStorage.getItem("access_token");
+    const token = window.sessionStorage.getItem("access_token");
     getUser(token)
       .then((data) => {
         setUser(data);
@@ -27,16 +26,17 @@ function Profile() {
       });
   }, []);
 
+  const [user, setUser] = React.useState({});
   const [newUser, setNewUser] = React.useState({
     id: user.id,
-    firstname: "",
-    lastname: "",
-    username: "",
-    email: "",
-    pass: "",
-    platform: "",
-    gamelist: "",
-    avataricon: "",
+    firstname: user.firstname,
+    lastname: user.lastname,
+    username: user.username,
+    email: user.email,
+    pass: user.pass,
+    platform: user.platform,
+    gamelist: user.gamelist,
+    avataricon: user.avataricon,
   });
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [trigger, setTrigger] = React.useState(false);
@@ -48,7 +48,7 @@ function Profile() {
   const [triggerAvatar, setTriggerAvatar] = React.useState(false);
 
   React.useEffect(() => {
-    const token = window.localStorage.getItem("access_token");
+    const token = window.sessionStorage.getItem("access_token");
     if (token) {
       getUser(token)
         .then((data) => {
@@ -65,8 +65,8 @@ function Profile() {
 
   // Logout Function
   const logout = () => {
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("username");
+    sessionStorage.removeItem("access_token");
+    sessionStorage.removeItem("username");
 
     setUser({});
     setIsLoggedIn(false);
@@ -75,7 +75,35 @@ function Profile() {
 
   function onChangeAvatar(avatarSrc) {
     setNewUser({ avataricon: avatarSrc });
-    window.location.href = "/profile";
+    window.location.reload();
+  }
+
+  function deletePlateform(plat) {
+    let index = user.platform.indexOf(plat);
+    if (index !== -1) {
+      user.platform.splice(index, 1);
+
+      const url = "platforms";
+      updateUser(url, { id: user.id, platform: user.platform })
+        .then((data) => setNewUser(data))
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
+  function deleteGameList(game) {
+    let index = user.gamelist.indexOf(game);
+    if (index !== -1) {
+      user.gamelist.splice(index, 1);
+
+      const url = "gameslist";
+      updateUser(url, { id: user.id, gamelist: user.gamelist })
+        .then((data) => setNewUser(data))
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   return (
@@ -189,7 +217,7 @@ function Profile() {
         <i>E-Mail: {user.email}</i>
       </fieldset>
 
-      {/*platfoooorms */}
+      {/*flatfoooorms */}
       <fieldset className="platforms">
         <label>
           Add New Platforms: <br />
@@ -201,6 +229,8 @@ function Profile() {
             {user.platform.map((plat) => (
               <li className="gameName" key={plat}>
                 <img src={`../../Assets/${plat}.svg`} />
+                <br />
+                <a onClick={() => deletePlateform(plat)}>-</a>
               </li>
             ))}
           </ul>
@@ -223,6 +253,7 @@ function Profile() {
             {user.gamelist.map((game) => (
               <li className="gameName" key={game.id}>
                 {game}
+                <a onClick={() => deleteGameList(game)}>-</a>
               </li>
             ))}
           </ul>

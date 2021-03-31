@@ -5,7 +5,7 @@ import { createRoom } from "../../utils/fetchRooms";
 function CreateRoom() {
   const [userId, setUserId] = React.useState();
 
-  const username = window.localStorage.getItem("username");
+  const username = window.sessionStorage.getItem("username");
   const ganmeid = window.location.href.split("=")[1];
   const gameName = window.location.href.split("=")[2];
 
@@ -62,7 +62,7 @@ function CreateRoom() {
               id="rname"
               onChange={handelChange}
               required
-            ></input>
+            />
           </label>
           <br />
           <label>
@@ -73,7 +73,7 @@ function CreateRoom() {
               id="maxgamers"
               onChange={handelChange}
               required
-            ></input>
+            />
           </label>
           <br />
           <label>
@@ -84,7 +84,7 @@ function CreateRoom() {
               id="descr"
               onChange={handelChange}
               required
-            ></input>
+            />
           </label>
           <br />
           <label>
@@ -95,7 +95,7 @@ function CreateRoom() {
               id="lang"
               onChange={handelChange}
               required
-            ></input>
+            />
           </label>
           <br />
           <label>
@@ -106,7 +106,7 @@ function CreateRoom() {
               id="age"
               onChange={handelChange}
               required
-            ></input>
+            />
           </label>
           <br />
           <label>
@@ -116,7 +116,7 @@ function CreateRoom() {
               name="skill"
               id="skill"
               onChange={handelChange}
-            ></input>
+            />
           </label>
           <br />
           <label>
@@ -127,7 +127,7 @@ function CreateRoom() {
               id="platform"
               onChange={handelChange}
               required
-            ></input>
+            />
           </label>
           <br />
           <button type="submit">Create</button>
