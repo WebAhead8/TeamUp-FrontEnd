@@ -1,16 +1,18 @@
 import React from "react";
 import mainFetch from "../../utils/mainFetch";
 import { Link } from "react-router-dom";
-// import GamerProf from "./GamerProf";
+import LoadingPage from "../../pages/LoadingPage";
 
 function Gamers() {
   const [gamers, setGamers] = React.useState([]);
 
   React.useEffect(() => {
     const url = "/users";
-    mainFetch(url).then((data) => {
-      setGamers(data);
-    });
+    mainFetch(url)
+      .then((data) => {
+        setGamers(data);
+      })
+      .catch((err) => (window.location.href = "/error"));
   }, []);
 
   const Gamers = ({ id, username, gamelist }) => (
@@ -30,7 +32,7 @@ function Gamers() {
     </div>
   );
 
-  return (
+  return gamers ? (
     <div className="gamers-cont">
       <h3>Find Gamers With The Same GameList As Yours</h3>
       <div className="gamers-grid">
@@ -39,6 +41,8 @@ function Gamers() {
         ))}
       </div>
     </div>
+  ) : (
+    <LoadingPage />
   );
 }
 export default Gamers;

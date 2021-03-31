@@ -9,7 +9,7 @@ import EditPassword from "./Popups/EditPassword";
 import EditUsername from "./Popups/EditUsername";
 import Notification from "../Notification";
 import Plateform from "../Platform";
-import Error404 from "../../pages/Error404";
+import LoadingPage from "../../pages/LoadingPage";
 import EditAvatarImg from "./Popups/EditAvatarImg";
 
 function Profile() {
@@ -101,12 +101,13 @@ function Profile() {
       updateUser(url, { id: user.id, gamelist: user.gamelist })
         .then((data) => setNewUser(data))
         .catch((error) => {
+          window.location.href = "/error";
           console.log(error);
         });
     }
   }
 
-  return (
+  return user ? (
     <div className="profile">
       <Notification noti={noti} setNoti={setNoti} link="/login">
         You Have To Login First
@@ -229,8 +230,27 @@ function Profile() {
             {user.platform.map((plat) => (
               <li className="gameName" key={plat}>
                 <img src={`../../Assets/${plat}.svg`} />
-                <br />
-                <a onClick={() => deletePlateform(plat)}>-</a>
+
+                <i className="delBtn" onClick={() => deletePlateform(plat)}>
+                  <abbr title="delete">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-eraser"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="#ff4500"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M19 19h-11l-4 -4a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9 9" />
+                      <line x1="18" y1="12.3" x2="11.7" y2="6" />
+                    </svg>
+                  </abbr>
+                </i>
               </li>
             ))}
           </ul>
@@ -253,7 +273,26 @@ function Profile() {
             {user.gamelist.map((game) => (
               <li className="gameName" key={game.id}>
                 {game}
-                <a onClick={() => deleteGameList(game)}>-</a>
+                <i className="delBtn" onClick={() => deleteGameList(game)}>
+                  <abbr title="delete">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-eraser"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="#ff4500"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M19 19h-11l-4 -4a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9 9" />
+                      <line x1="18" y1="12.3" x2="11.7" y2="6" />
+                    </svg>
+                  </abbr>
+                </i>
               </li>
             ))}
           </ul>
@@ -270,6 +309,8 @@ function Profile() {
         logout
       </button>
     </div>
+  ) : (
+    <LoadingPage />
   );
 }
 

@@ -13,9 +13,11 @@ function Games() {
 
   React.useEffect(() => {
     const url = `/games/${gameName}`;
-    mainFetch(url).then((data) => {
-      setGamesList(data);
-    });
+    mainFetch(url)
+      .then((data) => {
+        setGamesList(data);
+      })
+      .catch((err) => (window.location.href = "/error"));
   }, [gameName]);
 
   return (

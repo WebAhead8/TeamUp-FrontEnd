@@ -33,12 +33,12 @@ function EditAvatarImg(props) {
   const listAvatar = avatarImg.map((img) => (
     <img
       src={img.avatarsrc}
-      alt="avatarIcon"
+      alt={img.avatarname}
       name={img.avatarname}
       value={img.avatarsrc}
       id={img.id}
-      width="50"
-      height="50"
+      width="50px"
+      height="50px"
       onClick={setIcon}
     ></img>
   ));

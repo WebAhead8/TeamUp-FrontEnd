@@ -7,17 +7,19 @@ function InsideRoom() {
   let id = window.location.href.split("=")[1];
   let game = window.location.href.split("=")[2];
   let gameid = window.location.href.split("=")[3];
+  let loggedInUser = window.sessionStorage.getItem("username");
   const [room, setRoom] = React.useState([]);
   const [host, setHost] = React.useState();
   const [isHost, setIsHost] = React.useState(false);
-  let loggedInUser = window.localStorage.getItem("username");
 
+  // Gets all the data of the room and
   React.useEffect(() => {
     const url = `/rooms/${id}`;
     mainFetch(url)
       .then((room) => {
         setRoom(room);
         setHost(room[0].host);
+        console.log("host ", host);
         if (host) {
           getLoggedUserId();
         }
@@ -27,39 +29,48 @@ function InsideRoom() {
         console.log("Error from main fetch InsideRoom Component ", err);
       });
   }, [host]);
-
+  // Gets the username logged to get it's id
   const getLoggedUserId = () => {
     const url = `/user/${loggedInUser}`;
-    mainFetch(url).then((data) => {
-      if (host === data.id) {
-        setIsHost(true);
-      } else {
-        setIsHost(false);
-      }
-    });
+    mainFetch(url)
+      .then((data) => {
+        console.log("user id ", loggedInUser);
+        if (data) {
+          if (host === data.id) {
+            setIsHost(true);
+          } else {
+            setIsHost(false);
+          }
+        }
+      })
+      .catch((err) => (window.location.href = "/error"));
   };
 
-  const deleteRoom = () => {
-    // /rooms/:id"
-    DelRoom(room.id);
-    window.location.href = "/rooms";
+  const deleteRoom = (id) => {
+    DelRoom(id);
+    window.location.href = `rooms?gameid=${gameid}=gname=${game}`;
   };
-
   return (
     <div className="insideroom">
       {room.map((room) => (
         <div className="insideroomm">
           <h2>{room.rname}</h2>
-          {isHost ? <button onClick={deleteRoom}>Delete Room</button> : ""}
-          <Link
-            className="a"
-            to={{
-              pathname: "/rooms",
-              search: `id=${gameid}=gname=${game}`,
-            }}
-          >
-            Leave Room
-          </Link>
+          <div className="buttons">
+            {isHost ? (
+              <button onClick={() => deleteRoom(room.id)}>Delete Room</button>
+            ) : (
+              ""
+            )}
+            <Link
+              className="a"
+              to={{
+                pathname: "/rooms",
+                search: `id=${gameid}=gname=${game}`,
+              }}
+            >
+              Leave Room
+            </Link>
+          </div>
 
           <div className="roomdesc">
             <div className="rules-hdr">

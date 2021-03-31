@@ -13,9 +13,11 @@ function CreateRoom() {
 
   React.useEffect(() => {
     const url = `/user/${username}`;
-    mainFetch(url).then((user) => {
-      setUserId(user.id);
-    });
+    mainFetch(url)
+      .then((user) => {
+        setUserId(user.id);
+      })
+      .catch((err) => (window.location.href = "/error"));
   }, []);
 
   React.useEffect(() => {
@@ -44,9 +46,11 @@ function CreateRoom() {
   }
   const onSubmit = (event) => {
     event.preventDefault();
-    createRoom(createRoomInfo).then((data) => {
-      window.location.href = `/insideRoom?roomid=${data[0].id}=gname=${gameName}`;
-    });
+    createRoom(createRoomInfo)
+      .then((data) => {
+        window.location.href = `/insideRoom?roomid=${data[0].id}=gname=${gameName}`;
+      })
+      .catch((err) => (window.location.href = "/error"));
   };
 
   return (
