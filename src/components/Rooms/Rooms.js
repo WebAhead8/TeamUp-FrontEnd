@@ -56,7 +56,7 @@ function Rooms() {
                   <Link
                     to={{
                       pathname: "/insideRoom",
-                      search: `id=${id}=${gname}`,
+                      search: `roomid=${room.id}=${gname}=${id}`,
                     }}
                   >
                     JOIN

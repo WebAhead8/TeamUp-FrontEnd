@@ -35,15 +35,6 @@ function CreateRoom() {
 
   function handelChange(event) {
     const { name, value } = event.target;
-    // if (name === "skill") {
-    //   setCreateRoomInfo((prevValue) => {
-    //     return {
-    //       ...prevValue,
-    //       skill: value.split(","),
-    //     };
-    //   });
-    //   return;
-    // }
     setCreateRoomInfo((prevValue) => {
       return {
         ...prevValue,
@@ -51,11 +42,11 @@ function CreateRoom() {
       };
     });
   }
-
   const onSubmit = (event) => {
     event.preventDefault();
-    createRoom(createRoomInfo);
-    window.location.href = `/rooms?id=${ganmeid}=gname=${gameName}`;
+    createRoom(createRoomInfo).then((data) => {
+      window.location.href = `/insideRoom?roomid=${data[0].id}=gname=${gameName}`;
+    });
   };
 
   return (

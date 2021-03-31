@@ -13,6 +13,7 @@ import Error404 from "../../pages/Error404";
 import EditAvatarImg from "./Popups/EditAvatarImg";
 
 function Profile() {
+  const [user, setUser] = React.useState({});
   // States
   React.useEffect(() => {
     const token = window.localStorage.getItem("access_token");
@@ -26,7 +27,6 @@ function Profile() {
       });
   }, []);
 
-  const [user, setUser] = React.useState({});
   const [newUser, setNewUser] = React.useState({
     id: user.id,
     firstname: "",
@@ -189,7 +189,7 @@ function Profile() {
         <i>E-Mail: {user.email}</i>
       </fieldset>
 
-      {/*flatfoooorms */}
+      {/*platfoooorms */}
       <fieldset className="platforms">
         <label>
           Add New Platforms: <br />

@@ -42,7 +42,7 @@ function Games() {
               className="a"
               to={{
                 pathname: "/rooms",
-                search: `id=${game.id}=gname=${game.gname}`,
+                search: `gameid=${game.id}=gname=${game.gname}`,
               }}
             >
               <li className="gameName" key={game.id}>
