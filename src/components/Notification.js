@@ -1,5 +1,5 @@
-import React from "react";
-import LoadingPage from "../pages/LoadingPage";
+import React from 'react'
+import LoadingPage from '../pages/LoadingPage'
 function Notification(props) {
   return props.noti ? (
     <div className="popup">
@@ -7,8 +7,8 @@ function Notification(props) {
         <button
           className="close-btn"
           onClick={() => {
-            props.setNoti(false);
-            window.location.href = props.link;
+            props.setNoti(false)
+            window.location.href = props.link
           }}
         >
           <svg
@@ -51,8 +51,8 @@ function Notification(props) {
       </div>
     </div>
   ) : (
-    <LoadingPage />
-  );
+    ''
+  )
 }
 
-export default Notification;
+export default Notification
