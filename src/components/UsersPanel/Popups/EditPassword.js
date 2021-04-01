@@ -1,28 +1,28 @@
-import React from "react";
-import { updateUser } from "../../../utils/fetchUsers";
-import Notification from "../../Notification";
+import React from 'react'
+import { updateUser } from '../../../utils/fetchUsers'
+import Notification from '../../Notification'
 
 function EditPassword(props) {
-  const [prepassword, setPrePassword] = React.useState("");
-  const [newpassword, setNewPassword] = React.useState("");
-  const [noti, setNoti] = React.useState(false);
+  const [prepassword, setPrePassword] = React.useState('')
+  const [newpassword, setNewPassword] = React.useState('')
+  const [noti, setNoti] = React.useState(false)
 
   const savePass = () => {
     if (newpassword === prepassword) {
-      const url = "password";
+      const url = 'password'
       updateUser(url, { id: props.user.id, pass: newpassword })
         .then(() => {
-          props.setTriggerPass(false);
-          props.setTrigger(false);
-          window.location.href = "/profile";
+          props.setTriggerPass(false)
+          props.setTrigger(false)
+          window.location.reload()
         })
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     } else {
-      setNoti(true);
+      setNoti(true)
     }
-  };
+  }
 
   return props.triggerPass ? (
     <div className="popup">
@@ -33,8 +33,8 @@ function EditPassword(props) {
         <button
           className="close-btn"
           onClick={() => {
-            props.setTriggerPass(false);
-            props.setTrigger(true);
+            props.setTriggerPass(false)
+            props.setTrigger(true)
           }}
         >
           <svg
@@ -86,8 +86,8 @@ function EditPassword(props) {
       </div>
     </div>
   ) : (
-    ""
-  );
+    ''
+  )
 }
 
-export default EditPassword;
+export default EditPassword

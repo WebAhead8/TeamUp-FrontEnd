@@ -1,21 +1,21 @@
-import React from "react";
-import mainFetch from "../../utils/mainFetch";
-import { Link } from "react-router-dom";
+import React from 'react'
+import mainFetch from '../../utils/mainFetch'
+import { Link } from 'react-router-dom'
 
 function UsersPost({ user }) {
-  const [posts, setPosts] = React.useState({});
+  const [posts, setPosts] = React.useState({})
 
   React.useEffect(() => {
     mainFetch(`/posts/${user.id}`)
       .then((data) => {
         if (data.length) {
-          setPosts(data);
+          setPosts(data)
         } else {
-          setPosts({});
+          setPosts({})
         }
       })
-      .catch((err) => (window.location.href = "/error"));
-  }, []);
+      .catch((err) => console.log(err))
+  }, [])
 
   return posts.length ? (
     <ul>
@@ -48,12 +48,12 @@ function UsersPost({ user }) {
   ) : (
     <div>
       <i>
-        {" "}
+        {' '}
         You have no posts, navigate to the <Link to="/lobby">LOBBY</Link> and
         share some!
       </i>
     </div>
-  );
+  )
 }
 
-export default UsersPost;
+export default UsersPost

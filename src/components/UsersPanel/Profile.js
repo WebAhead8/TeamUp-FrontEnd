@@ -1,32 +1,32 @@
-import React from "react";
-import { getUser, updateUser } from "../../utils/fetchUsers";
-import DataList from "../DataList";
-import UsersPost from "./UsersPost";
-import DeleteAccount from "./Popups/DeleteAccount";
-import Edit from "./Popups/Edit";
-import EditEmail from "./Popups/EditEmail";
-import EditPassword from "./Popups/EditPassword";
-import EditUsername from "./Popups/EditUsername";
-import Notification from "../Notification";
-import Plateform from "../Platform";
-import LoadingPage from "../../pages/LoadingPage";
-import EditAvatarImg from "./Popups/EditAvatarImg";
+import React from 'react'
+import { getUser, updateUser } from '../../utils/fetchUsers'
+import DataList from '../DataList'
+import UsersPost from './UsersPost'
+import DeleteAccount from './Popups/DeleteAccount'
+import Edit from './Popups/Edit'
+import EditEmail from './Popups/EditEmail'
+import EditPassword from './Popups/EditPassword'
+import EditUsername from './Popups/EditUsername'
+import Notification from '../Notification'
+import Plateform from '../Platform'
+import LoadingPage from '../../pages/LoadingPage'
+import EditAvatarImg from './Popups/EditAvatarImg'
 
 function Profile() {
   // States
   React.useEffect(() => {
-    const token = window.sessionStorage.getItem("access_token");
+    const token = window.sessionStorage.getItem('access_token')
     getUser(token)
       .then((data) => {
-        setUser(data);
-        setIsLoggedIn(true);
+        setUser(data)
+        setIsLoggedIn(true)
       })
       .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+        console.log(error)
+      })
+  }, [])
 
-  const [user, setUser] = React.useState({});
+  const [user, setUser] = React.useState({})
   const [newUser, setNewUser] = React.useState({
     id: user.id,
     firstname: user.firstname,
@@ -37,73 +37,72 @@ function Profile() {
     platform: user.platform,
     gamelist: user.gamelist,
     avataricon: user.avataricon,
-  });
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [trigger, setTrigger] = React.useState(false);
-  const [noti, setNoti] = React.useState(false);
-  const [triggerEmail, setTriggerEmail] = React.useState(false);
-  const [triggerPass, setTriggerPass] = React.useState(false);
-  const [triggerUsername, setTriggerUsername] = React.useState(false);
-  const [triggerDelete, setTriggerDelete] = React.useState(false);
-  const [triggerAvatar, setTriggerAvatar] = React.useState(false);
+  })
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+  const [trigger, setTrigger] = React.useState(false)
+  const [noti, setNoti] = React.useState(false)
+  const [triggerEmail, setTriggerEmail] = React.useState(false)
+  const [triggerPass, setTriggerPass] = React.useState(false)
+  const [triggerUsername, setTriggerUsername] = React.useState(false)
+  const [triggerDelete, setTriggerDelete] = React.useState(false)
+  const [triggerAvatar, setTriggerAvatar] = React.useState(false)
 
   React.useEffect(() => {
-    const token = window.sessionStorage.getItem("access_token");
+    const token = window.sessionStorage.getItem('access_token')
     if (token) {
       getUser(token)
         .then((data) => {
-          setUser(data);
-          setIsLoggedIn(true);
+          setUser(data)
+          setIsLoggedIn(true)
         })
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     } else {
-      setNoti(true);
+      setNoti(true)
     }
-  }, [newUser]);
+  }, [newUser])
 
   // Logout Function
   const logout = () => {
-    sessionStorage.removeItem("access_token");
-    sessionStorage.removeItem("username");
+    sessionStorage.removeItem('access_token')
+    sessionStorage.removeItem('username')
 
-    setUser({});
-    setIsLoggedIn(false);
-    window.location.href = "/";
-  };
+    setUser({})
+    setIsLoggedIn(false)
+    window.location.href = '/'
+  }
 
   function onChangeAvatar(avatarSrc) {
-    setNewUser({ avataricon: avatarSrc });
-    window.location.reload();
+    setNewUser({ avataricon: avatarSrc })
+    window.location.reload()
   }
 
   function deletePlateform(plat) {
-    let index = user.platform.indexOf(plat);
+    let index = user.platform.indexOf(plat)
     if (index !== -1) {
-      user.platform.splice(index, 1);
+      user.platform.splice(index, 1)
 
-      const url = "platforms";
+      const url = 'platforms'
       updateUser(url, { id: user.id, platform: user.platform })
         .then((data) => setNewUser(data))
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     }
   }
 
   function deleteGameList(game) {
-    let index = user.gamelist.indexOf(game);
+    let index = user.gamelist.indexOf(game)
     if (index !== -1) {
-      user.gamelist.splice(index, 1);
+      user.gamelist.splice(index, 1)
 
-      const url = "gameslist";
+      const url = 'gameslist'
       updateUser(url, { id: user.id, gamelist: user.gamelist })
         .then((data) => setNewUser(data))
         .catch((error) => {
-          window.location.href = "/error";
-          console.log(error);
-        });
+          console.log(error)
+        })
     }
   }
 
@@ -121,12 +120,12 @@ function Profile() {
 
           <button
             onClick={() => {
-              setTrigger(!trigger);
-              setTriggerUsername(false);
-              setTriggerEmail(false);
-              setTriggerPass(false);
-              setTriggerDelete(false);
-              setTriggerAvatar(false);
+              setTrigger(!trigger)
+              setTriggerUsername(false)
+              setTriggerEmail(false)
+              setTriggerPass(false)
+              setTriggerDelete(false)
+              setTriggerAvatar(false)
             }}
           >
             <img src="../../Assets/EditBtn.svg" alt="" />
@@ -137,32 +136,32 @@ function Profile() {
         <h1>Edit Your Info</h1>
         <a
           onClick={() => {
-            setTriggerEmail(true);
-            setTrigger(false);
+            setTriggerEmail(true)
+            setTrigger(false)
           }}
         >
           Edit Your Email
         </a>
         <a
           onClick={() => {
-            setTriggerPass(true);
-            setTrigger(false);
+            setTriggerPass(true)
+            setTrigger(false)
           }}
         >
           Edit Your Password
         </a>
         <a
           onClick={() => {
-            setTriggerUsername(true);
-            setTrigger(false);
+            setTriggerUsername(true)
+            setTrigger(false)
           }}
         >
           Edit Your Username
         </a>
         <a
           onClick={() => {
-            setTriggerAvatar(true);
-            setTrigger(false);
+            setTriggerAvatar(true)
+            setTrigger(false)
           }}
         >
           Edit Your Avatar Img
@@ -170,8 +169,8 @@ function Profile() {
         <a
           className="del-account"
           onClick={() => {
-            setTriggerDelete(true);
-            setTrigger(false);
+            setTriggerDelete(true)
+            setTrigger(false)
           }}
         >
           Delete Your Account
@@ -255,7 +254,7 @@ function Profile() {
             ))}
           </ul>
         ) : (
-          ""
+          ''
         )}
       </fieldset>
 
@@ -296,7 +295,7 @@ function Profile() {
             ))}
           </ul>
         ) : (
-          ""
+          ''
         )}
       </fieldset>
       <fieldset className="posts">
@@ -310,7 +309,7 @@ function Profile() {
     </div>
   ) : (
     <LoadingPage />
-  );
+  )
 }
 
-export default Profile;
+export default Profile

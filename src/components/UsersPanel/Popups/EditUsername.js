@@ -1,22 +1,22 @@
-import React from "react";
-import { updateUser } from "../../../utils/fetchUsers";
+import React from 'react'
+import { updateUser } from '../../../utils/fetchUsers'
 
 function EditUsername(props) {
-  const [newUsername, setNewUsername] = React.useState("");
+  const [newUsername, setNewUsername] = React.useState('')
 
   const saveUsername = () => {
-    const url = "username";
+    const url = 'username'
     updateUser(url, { id: props.userId, username: newUsername })
       .then(() => {
-        props.setTriggerUsername(false);
-        props.setTrigger(false);
-        window.sessionStorage.setItem("username", newUsername);
-        window.location.href = "/profile";
+        props.setTriggerUsername(false)
+        props.setTrigger(false)
+        window.sessionStorage.setItem('username', newUsername)
+        window.location.reload()
       })
       .catch((error) => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+      })
+  }
 
   return props.triggerUsername ? (
     <div className="popup">
@@ -24,8 +24,8 @@ function EditUsername(props) {
         <button
           className="close-btn"
           onClick={() => {
-            props.setTriggerUsername(false);
-            props.setTrigger(true);
+            props.setTriggerUsername(false)
+            props.setTrigger(true)
           }}
         >
           <svg
@@ -60,8 +60,8 @@ function EditUsername(props) {
       </div>
     </div>
   ) : (
-    ""
-  );
+    ''
+  )
 }
 
-export default EditUsername;
+export default EditUsername

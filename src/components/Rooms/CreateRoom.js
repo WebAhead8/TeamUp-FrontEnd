@@ -1,55 +1,55 @@
-import React from "react";
-import mainFetch from "../../utils/mainFetch";
-import { createRoom } from "../../utils/fetchRooms";
+import React from 'react'
+import mainFetch from '../../utils/mainFetch'
+import { createRoom } from '../../utils/fetchRooms'
 
 function CreateRoom() {
-  const [userId, setUserId] = React.useState();
-  const username = window.sessionStorage.getItem("username");
-  const ganmeid = window.location.href.split("=")[1];
-  const gameName = window.location.href.split("=")[2];
-  const [createRoomInfo, setCreateRoomInfo] = React.useState(null);
+  const [userId, setUserId] = React.useState()
+  const username = window.sessionStorage.getItem('username')
+  const ganmeid = window.location.href.split('=')[1]
+  const gameName = window.location.href.split('=')[2]
+  const [createRoomInfo, setCreateRoomInfo] = React.useState(null)
 
   React.useEffect(() => {
-    const url = `/user/${username}`;
+    const url = `/user/${username}`
     mainFetch(url)
       .then((user) => {
-        setUserId(user.id);
+        setUserId(user.id)
       })
-      .catch((err) => (window.location.href = "/error"));
-  }, []);
+      .catch((err) => (window.location.href = '/error'))
+  }, [])
 
   React.useEffect(() => {
     setCreateRoomInfo({
-      rname: "",
+      rname: '',
       gname: ganmeid,
       gamers: [username],
       host: userId,
-      maxgamers: "",
-      descr: "",
-      lang: " ",
-      age: "",
-      skill: "",
-      platform: "",
-    });
-  }, [userId]);
+      maxgamers: '',
+      descr: '',
+      lang: ' ',
+      age: '',
+      skill: '',
+      platform: '',
+    })
+  }, [userId])
 
   function handelChange(event) {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setCreateRoomInfo((prevValue) => {
       return {
         ...prevValue,
         [name]: value,
-      };
-    });
+      }
+    })
   }
   const onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     createRoom(createRoomInfo)
       .then((data) => {
-        window.location.href = `/insideRoom?roomid=${data[0].id}=gname=${gameName}`;
+        window.location.href = `/insideRoom?roomid=${data[0].id}=gname=${gameName}`
       })
-      .catch((err) => (window.location.href = "/error"));
-  };
+      .catch((err) => (window.location.href = '/error'))
+  }
 
   return (
     <div className="create-room">
@@ -133,13 +133,13 @@ function CreateRoom() {
           </label>
           <br />
           <button type="submit">Create</button>
-          <button onClick={() => (window.location.href = "/games")}>
+          <button onClick={() => (window.location.href = '/games')}>
             Cancel
           </button>
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default CreateRoom;
+export default CreateRoom

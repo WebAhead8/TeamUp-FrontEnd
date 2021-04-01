@@ -1,54 +1,54 @@
-import React from "react";
-import mainFetch from "../../utils/mainFetch";
-import { DelRoom } from "../../utils/fetchRooms";
-import { Link } from "react-router-dom";
+import React from 'react'
+import mainFetch from '../../utils/mainFetch'
+import { DelRoom } from '../../utils/fetchRooms'
+import { Link } from 'react-router-dom'
 
 function InsideRoom() {
-  let id = window.location.href.split("=")[1];
-  let game = window.location.href.split("=")[2];
-  let gameid = window.location.href.split("=")[3];
-  let loggedInUser = window.sessionStorage.getItem("username");
-  const [room, setRoom] = React.useState([]);
-  const [host, setHost] = React.useState();
-  const [isHost, setIsHost] = React.useState(false);
+  let id = window.location.href.split('=')[1]
+  let game = window.location.href.split('=')[2]
+  let gameid = window.location.href.split('=')[3]
+  let loggedInUser = window.sessionStorage.getItem('username')
+  const [room, setRoom] = React.useState([])
+  const [host, setHost] = React.useState()
+  const [isHost, setIsHost] = React.useState(false)
 
   // Gets all the data of the room and
   React.useEffect(() => {
-    const url = `/rooms/${id}`;
+    const url = `/rooms/${id}`
     mainFetch(url)
       .then((room) => {
-        setRoom(room);
-        setHost(room[0].host);
-        console.log("host ", host);
+        setRoom(room)
+        setHost(room[0].host)
+        console.log('host ', host)
         if (host) {
-          getLoggedUserId();
+          getLoggedUserId()
         }
       })
       .catch((err) => {
-        window.location.href = "/error";
-        console.log("Error from main fetch InsideRoom Component ", err);
-      });
-  }, [host]);
+        window.location.href = '/error'
+        console.log('Error from main fetch InsideRoom Component ', err)
+      })
+  }, [host])
   // Gets the username logged to get it's id
   const getLoggedUserId = () => {
-    const url = `/user/${loggedInUser}`;
+    const url = `/user/${loggedInUser}`
     mainFetch(url)
       .then((data) => {
         if (data) {
           if (host === data.id) {
-            setIsHost(true);
+            setIsHost(true)
           } else {
-            setIsHost(false);
+            setIsHost(false)
           }
         }
       })
-      .catch((err) => (window.location.href = "/error"));
-  };
+      .catch((err) => (window.location.href = '/error'))
+  }
 
   const deleteRoom = (id) => {
-    DelRoom(id);
-    window.location.href = `rooms?gameid=${gameid}=gname=${game}`;
-  };
+    DelRoom(id)
+    window.location.href = `rooms?gameid=${gameid}=gname=${game}`
+  }
   return (
     <div className="insideroom">
       {room.map((room) => (
@@ -58,12 +58,12 @@ function InsideRoom() {
             {isHost ? (
               <button onClick={() => deleteRoom(room.id)}>Delete Room</button>
             ) : (
-              ""
+              ''
             )}
             <Link
               className="a"
               to={{
-                pathname: "/rooms",
+                pathname: '/rooms',
                 search: `id=${gameid}=gname=${game}`,
               }}
             >
@@ -90,12 +90,12 @@ function InsideRoom() {
               <h1> Gamers Joined The Room :</h1>
               {room.gamers
                 ? room.gamers.map((plat) => <li id={plat.id}>{plat}</li>)
-                : ""}
+                : ''}
             </ul>
           </div>
         </div>
       ))}
     </div>
-  );
+  )
 }
-export default InsideRoom;
+export default InsideRoom

@@ -1,24 +1,24 @@
-import mainFetch from "../../utils/mainFetch";
-import React from "react";
-import { Link } from "react-router-dom";
+import mainFetch from '../../utils/mainFetch'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Games() {
   // States
-  const [gameName, setGameName] = React.useState("");
-  const [gamesList, setGamesList] = React.useState([]);
+  const [gameName, setGameName] = React.useState('')
+  const [gamesList, setGamesList] = React.useState([])
 
   const handleChange = (event) => {
-    setGameName(event.target.value);
-  };
+    setGameName(event.target.value)
+  }
 
   React.useEffect(() => {
-    const url = `/games/${gameName}`;
+    const url = `/games/${gameName}`
     mainFetch(url)
       .then((data) => {
-        setGamesList(data);
+        setGamesList(data)
       })
-      .catch((err) => (window.location.href = "/error"));
-  }, [gameName]);
+      .catch((err) => (window.location.href = '/error'))
+  }, [gameName])
 
   return (
     <div className="gamespage">
@@ -43,7 +43,7 @@ function Games() {
             <Link
               className="a"
               to={{
-                pathname: "/rooms",
+                pathname: '/rooms',
                 search: `gameid=${game.id}=gname=${game.gname}`,
               }}
             >
@@ -55,7 +55,7 @@ function Games() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default Games;
+export default Games

@@ -1,28 +1,28 @@
-import React from "react";
-import { updateUser } from "../../../utils/fetchUsers";
-import Notification from "../../Notification";
+import React from 'react'
+import { updateUser } from '../../../utils/fetchUsers'
+import Notification from '../../Notification'
 
 function EditEmail(props) {
-  const [preEmail, setPreEmail] = React.useState("");
-  const [newEmail, setNewEmail] = React.useState("");
-  const [noti, setNoti] = React.useState(false);
+  const [preEmail, setPreEmail] = React.useState('')
+  const [newEmail, setNewEmail] = React.useState('')
+  const [noti, setNoti] = React.useState(false)
 
   const saveEmail = () => {
-    const url = "email";
+    const url = 'email'
     if (preEmail === props.user.email) {
       updateUser(url, { id: props.user.id, email: newEmail })
         .then((data) => {
-          props.setTriggerEmail(false);
-          props.setTrigger(false);
-          window.location.href = "/profile";
+          props.setTriggerEmail(false)
+          props.setTrigger(false)
+          window.location.reload()
         })
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     } else {
-      setNoti(true);
+      setNoti(true)
     }
-  };
+  }
 
   return props.triggerEmail ? (
     <div className="popup">
@@ -33,8 +33,8 @@ function EditEmail(props) {
         <button
           className="close-btn"
           onClick={() => {
-            props.setTriggerEmail(false);
-            props.setTrigger(true);
+            props.setTriggerEmail(false)
+            props.setTrigger(true)
           }}
         >
           <svg
@@ -77,8 +77,8 @@ function EditEmail(props) {
       </div>
     </div>
   ) : (
-    ""
-  );
+    ''
+  )
 }
 
-export default EditEmail;
+export default EditEmail
