@@ -52,7 +52,8 @@ function InsideRoom() {
   }
   function leaveRoomUnjoin() {
     if (gamersInRoom.includes(loggedInUser)) {
-      gamersInRoom.pop()
+      let indexOFUser = gamersInRoom.indexOf(loggedInUser)
+      gamersInRoom.splice(indexOFUser, 1)
       updateRoom(id, gamersInRoom)
         .then((newroom) => {
           setRoom(newroom)
