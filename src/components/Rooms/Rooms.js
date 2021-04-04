@@ -1,21 +1,23 @@
-import React from "react";
-import mainFetch from "../../utils/mainFetch";
-import { Link } from "react-router-dom";
+import React from 'react'
+import mainFetch from '../../utils/mainFetch'
+import { Link } from 'react-router-dom'
 
 function Rooms() {
-  let id = window.location.href.split("=")[1];
-  let gnameuncorrect = window.location.href.split("=")[3];
-  let gname = gnameuncorrect.replace(/%20/g, " ");
+  let id = window.location.href.split('=')[1]
+  let gnameuncorrect = window.location.href.split('=')[3]
+  let gname = gnameuncorrect.replace(/%20/g, ' ')
 
-  const [rooms, setRooms] = React.useState([]);
+  let userUsername = window.sessionStorage.username
+
+  const [rooms, setRooms] = React.useState([])
   React.useEffect(() => {
-    const url = `/grooms/${id}`;
+    const url = `/grooms/${id}`
     mainFetch(url)
       .then((data) => {
-        setRooms(data);
+        setRooms(data)
       })
-      .catch((err) => (window.location.href = "/error"));
-  }, []);
+      .catch((err) => (window.location.href = '/error'))
+  }, [])
 
   return rooms ? (
     <div className="rooms">
@@ -23,14 +25,14 @@ function Rooms() {
       <div className="links">
         <div className="CreateRoom-link">
           <Link
-            to={{ pathname: "/createRoom", search: `id=${id}=${gname}` }}
+            to={{ pathname: '/createRoom', search: `id=${id}=${gname}` }}
             className="a"
           >
             Create Room
           </Link>
         </div>
         <div className="LeaveGame-link">
-          <Link className="a" to={{ pathname: "/games" }}>
+          <Link className="a" to={{ pathname: '/games' }}>
             Leave Game
           </Link>
         </div>
@@ -39,7 +41,7 @@ function Rooms() {
       {!rooms.length ? (
         <h1>There is no rooms for this game. Create one!</h1>
       ) : (
-        ""
+        ''
       )}
       <ul className="roomsList">
         {rooms.map((room) => (
@@ -61,8 +63,9 @@ function Rooms() {
                 <li className="a" key={room.id}>
                   <Link
                     to={{
-                      pathname: "/insideRoom",
+                      pathname: '/insideRoom',
                       search: `roomid=${room.id}=${gname}=${id}`,
+                      state: { username: userUsername },
                     }}
                   >
                     JOIN
@@ -76,7 +79,7 @@ function Rooms() {
     </div>
   ) : (
     <h1>There is no rooms for this game. Create one!</h1>
-  );
+  )
 }
 
-export default Rooms;
+export default Rooms
