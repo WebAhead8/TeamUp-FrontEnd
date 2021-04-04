@@ -1,6 +1,6 @@
 import React from 'react'
 import mainFetch from '../../utils/mainFetch'
-import { DelRoom } from '../../utils/fetchRooms'
+import { DelRoom, updateRoom } from '../../utils/fetchRooms'
 import { Link } from 'react-router-dom'
 
 function InsideRoom() {
@@ -11,6 +11,8 @@ function InsideRoom() {
   const [room, setRoom] = React.useState([])
   const [host, setHost] = React.useState()
   const [isHost, setIsHost] = React.useState(false)
+  const [gamersInRoom, setGamersInRoom] = React.useState([])
+  const [joined, setJoined] = React.useState(false)
 
   // Gets all the data of the room and
   React.useEffect(() => {
@@ -18,8 +20,10 @@ function InsideRoom() {
     mainFetch(url)
       .then((room) => {
         setRoom(room)
+        console.log(room, 'first room')
         setHost(room[0].host)
-        console.log('host ', host)
+        setGamersInRoom(room[0].gamers)
+        setJoined(true)
         if (host) {
           getLoggedUserId()
         }
@@ -28,7 +32,40 @@ function InsideRoom() {
         window.location.href = '/error'
         console.log('Error from main fetch InsideRoom Component ', err)
       })
-  }, [host])
+  }, [])
+
+  //add user who has joined to the room
+  function join() {
+    if (gamersInRoom.includes(loggedInUser)) {
+      alert(` HI ${loggedInUser} YOU ALREDY JOINED`)
+    } else {
+      gamersInRoom.push(loggedInUser)
+
+      updateRoom(id, gamersInRoom)
+        .then(() => {
+          window.location.reload()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }
+  function leaveRoomUnjoin() {
+    if (gamersInRoom.includes(loggedInUser)) {
+      gamersInRoom.pop()
+      updateRoom(id, gamersInRoom)
+        .then((newroom) => {
+          setRoom(newroom)
+          console.log(room)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }
+
+  //
+
   // Gets the username logged to get it's id
   const getLoggedUserId = () => {
     const url = `/user/${loggedInUser}`
@@ -49,6 +86,7 @@ function InsideRoom() {
     DelRoom(id)
     window.location.href = `rooms?gameid=${gameid}=gname=${game}`
   }
+
   return (
     <div className="insideroom">
       {room.map((room) => (
@@ -66,9 +104,13 @@ function InsideRoom() {
                 pathname: '/rooms',
                 search: `id=${gameid}=gname=${game}`,
               }}
+              onClick={leaveRoomUnjoin}
             >
               Leave Room
             </Link>
+            <button onClick={join} className="a">
+              join
+            </button>
           </div>
 
           <div className="roomdesc">
